@@ -82,6 +82,10 @@ for (i = 0; i < stationLocations.length; i++) {
 // 8  to_x
 // 9  to_y
 // 12 original color for segment_color
+
+window.onload = function () {
+      refreshDiagram();
+}
         
 function refreshDiagram () {
 
@@ -228,7 +232,7 @@ function refreshDiagram () {
             ];
         }
 
-        var maxIndex = 900;
+        var maxIndex = 1900;
         var stationNames = []
         var lastStation = ''
         for (i = 0; i < tableOfStops.length; i++) {
@@ -242,13 +246,13 @@ function refreshDiagram () {
         // set up d3 box to later plot points
 
         var MARGINS = {top: 20, right: 20, bottom: 20, left: 20};
-        var WIDTH = 900;
-        var HEIGHT = 900;
+        var WIDTH = 1900;
+        var HEIGHT = 1900;
 
         d3.selectAll("svg > *").remove();
 
         var div = d3.select("body").append("div")	
-            .attr("class", "tooltip")				
+            .attr("class", "tooltip")
             .style("opacity", 0);
 
         //var vis = d3.select("#visualisation");
@@ -259,8 +263,8 @@ function refreshDiagram () {
             .append("g")
                 .attr("transform", "translate(" + MARGINS.left + "," + MARGINS.top + ")");
 
-        var xScale = d3.scale.linear().range([0,900]).domain([0,900]);
-        var yScale = d3.scale.linear().range([0,900]).domain([0,900]);
+        var xScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
+        var yScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
 
         // take a look at alerts and edit segments and stations as necessary
 
@@ -298,7 +302,7 @@ function refreshDiagram () {
                             affectedStations = [];
                             for (g = 0; g < all_alerts[i]['affected_services']['services'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
-                                if (all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Red' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Orange') {
+                                if (all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Red' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Orange' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Blue' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-B' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-C' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-D' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-E') {
 
                                     console.log('FOUND RED/ORANGE ALERT:');
                                     console.log(all_alerts[i]);
