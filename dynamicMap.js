@@ -84,10 +84,10 @@ for (i = 0; i < stationLocations.length; i++) {
 // 12 original color for segment_color
 
 window.onload = function () {
-      refreshDiagram();
+      refreshDiagram("current_status");
 }
         
-function refreshDiagram () {
+function refreshDiagram (refreshMode) {
 
     console.log("ready to go");
     document.getElementById("dwellsT").innerHTML = 'Please wait. Your diagram is currently baking...<br>&nbsp;';
@@ -173,13 +173,12 @@ function refreshDiagram () {
         var midnight = dateMidnight.getTime() / 1000;
         var timeFrom = dateFrom.getTime() / 1000;
 
-        console.log('Time from:');
+        if (refreshMode == 'current_status') {
+            console.log('WAIT WE WANT CURRENT STATUS!');
+            timeFrom = (new Date).getTime() / 1000;
+            console.log(timeFrom);
+        }
         console.log(timeFrom);
-
-        // add 0 seconds of buffer time to plot before timeFrom and after timeTo
-
-        var timeFromUse = timeFrom - 0;
-        var timeToUse = timeTo + 0;
 
         // define route, which here is eastbound C-branch on MBTA Green Line
 
@@ -284,6 +283,10 @@ function refreshDiagram () {
 
                     for(i = 0; i < all_alerts.length; i++) {
 
+                        // if (all_alerts[i]['cause'] == 'WEATHER') {
+                        //     console.log(all_alerts[i]);
+                        // }
+
                         var alertRelevant = false;
                         for(h = 0; h < all_alerts[i]['effect_periods'].length; h++) {
 
@@ -302,39 +305,56 @@ function refreshDiagram () {
                             affectedStations = [];
                             for (g = 0; g < all_alerts[i]['affected_services']['services'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
-                                if (all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Red' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Orange' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Blue' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-B' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-C' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-D' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-E') {
+                                if (all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Red' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Orange' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Mattapan' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Blue' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-B' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-C' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-D' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-E') {
 
                                     console.log('FOUND RED/ORANGE ALERT:');
                                     console.log(all_alerts[i]);
+                                    console.log(all_alerts[i]['affected_services']['services'][g])
 
-                                    // Add affected parent stations to affectedStops
-                                    for (f = 0; f < allStops.length; f++) {
-                                        if (allStops[f][0] == all_alerts[i]['affected_services']['services'][g]['stop_id']) {
-                                            if (allStops[f][9] == '') {
-                                                // We found our parent station, so add to affectedStations
-                                                var foundAffected = false;
-                                                for (a = 0; a < affectedStations.length; a++) {
-                                                    if (affectedStations[a] == allStops[f][0]) {
-                                                        foundAffected = true;
-                                                        break;
+                                    if (all_alerts[i]['affected_services']['services'][g]['stop_id'] == null) {
+                                        console.log('PROBLEM WITH!!!')
+                                        for (a = 0; a < preStationLocations.length; a++) {
+                                            console.log('a:')
+                                            console.log(a)
+                                            if (preStationLocations[a][0] == all_alerts[i]['affected_services']['services'][g]['route_id']) {
+                                                affectedStations.push(preStationLocations[a][4]);
+                                                console.log("adding hopefully mattapan stop: ")
+                                                console.log(preStationLocations[a])
+                                            }
+                                        }
+                                    } else {
+
+                                        // Add affected parent stations to affectedStops
+                                        for (f = 0; f < allStops.length; f++) {
+                                            if (all_alerts[i]['affected_services']['services'][g]['stop_id'] != null) {
+                                                if (allStops[f][0] == all_alerts[i]['affected_services']['services'][g]['stop_id']) {
+                                                    if (allStops[f][9] == '') {
+                                                        // We found our parent station, so add to affectedStations
+                                                        var foundAffected = false;
+                                                        for (a = 0; a < affectedStations.length; a++) {
+                                                            if (affectedStations[a] == allStops[f][0]) {
+                                                                foundAffected = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (foundAffected == false) {
+                                                            affectedStations.push(allStops[f][0]);
+                                                        }
+                                                    } else {
+                                                        var foundAffected = false;
+                                                        for (a = 0; a < affectedStations.length; a++) {
+                                                            if (affectedStations[a] == allStops[f][9]) {
+                                                                foundAffected = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (foundAffected == false) {
+                                                            affectedStations.push(allStops[f][9]);
+                                                        }
                                                     }
-                                                }
-                                                if (foundAffected == false) {
-                                                    affectedStations.push(allStops[f][0]);
-                                                }
-                                            } else {
-                                                var foundAffected = false;
-                                                for (a = 0; a < affectedStations.length; a++) {
-                                                    if (affectedStations[a] == allStops[f][9]) {
-                                                        foundAffected = true;
-                                                        break;
-                                                    }
-                                                }
-                                                if (foundAffected == false) {
-                                                    affectedStations.push(allStops[f][9]);
+                                                    break;
                                                 }
                                             }
-                                            break;
                                         }
                                     }
                                 }
@@ -407,20 +427,20 @@ function refreshDiagram () {
                             return 'solid'
                         }
                     })
-                    .on('mouseover', function(d) {		
+                    .on('mouseover', function(d) {      
                         div.transition()
-                            .duration(200)		
-                            .style('opacity', 1);		
+                            .duration(200)      
+                            .style('opacity', 1);       
                         div.html('<large><b>Between</b></large><br>' +
                                  d[10] + ' and ' + d[11] + '<br>on line <b>' + d[0] + '</b>'
                                 )
-                            .style('left', (d3.event.pageX - 250) + 'px')		
-                            .style('top', (d3.event.pageY - 170) + 'px');	
+                            .style('left', (d3.event.pageX - 250) + 'px')       
+                            .style('top', (d3.event.pageY - 170) + 'px');   
                     })
-                    .on('mouseout', function(d) {		
-                        div.transition()		
-                            .duration(500)		
-                            .style('opacity', 0);	
+                    .on('mouseout', function(d) {       
+                        div.transition()        
+                            .duration(500)      
+                            .style('opacity', 0);   
                     });
 
             vis.selectAll('circle.points')
@@ -472,7 +492,11 @@ function refreshDiagram () {
             var monthIndex = timeFromAsDate.getMonth();
             var dayIndex = timeFromAsDate.getDay();
 
-            document.getElementById("dwellsT").innerHTML = 'Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '<br><b>' + timeDayText + '</b>';
+            if (refreshMode == 'current_status') {
+                document.getElementById("dwellsT").innerHTML = 'Live MBTA rapid transit service diagram';
+            } else {
+                document.getElementById("dwellsT").innerHTML = 'Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '<br><b>' + timeDayText + '</b>';
+            }
         }, 1000);
     }, 100);
 };
