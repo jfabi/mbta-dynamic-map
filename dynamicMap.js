@@ -419,6 +419,7 @@ function refreshDiagram (refreshMode) {
                     .attr('y2', function(d) { return yScale(d[9]) })
                     .attr('stroke', function(d){ return '#' + d[3] })
                     .attr('stroke-width', 12)
+                    .attr('stroke-opacity', 1)
                     .attr('fill', 'none')
                     .attr('class', function(d) {
                         if (d[3] == '000000') {
@@ -427,6 +428,7 @@ function refreshDiagram (refreshMode) {
                             return 'solid'
                         }
                     })
+                    // .on('start', animateSquare)
                     .on('mouseover', function(d) {      
                         div.transition()
                             .duration(200)      
@@ -435,7 +437,7 @@ function refreshDiagram (refreshMode) {
                                  d[10] + ' and ' + d[11] + '<br>on line <b>' + d[0] + '</b>'
                                 )
                             .style('left', (d3.event.pageX - 250) + 'px')       
-                            .style('top', (d3.event.pageY - 170) + 'px');   
+                            .style('top', (d3.event.pageY - 70) + 'px');   
                     })
                     .on('mouseout', function(d) {       
                         div.transition()        
@@ -449,7 +451,7 @@ function refreshDiagram (refreshMode) {
                 .append('circle')
                     .attr('cx', function(d) { return xScale(d[5]) })
                     .attr('cy', function(d) { return yScale(d[6]) })
-                    .attr('r', function(d) { return '5' })
+                    .attr('r', function(d) { return '4' })
                     .attr('y2', function(d) { return yScale(d[9]) })
                     .attr('fill', function(d){ return '#ffffff' })
                     .style('opacity', function(d) {
@@ -468,7 +470,7 @@ function refreshDiagram (refreshMode) {
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { return d[3] })
                     .attr('font-family', 'sans-serif')
-                    .attr('font-size', '14px')
+                    .attr('font-size', '0px')
                     .attr('fill', function(d) {
                         if (d[8] == 'closed') {
                             return 'gray'
