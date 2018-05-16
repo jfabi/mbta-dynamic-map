@@ -28,8 +28,9 @@ Red,1,9,South Station,place-sstat,851,550,ff0000
 Red,1,10,Broadway,place-brdwy,884,650,ff0000
 Red,1,11,Andrew,place-andrw,884,702,ff0000
 Red,1,12,JFK/UMass,place-jfk,884,752,ff0000
+Red,1,13,North Quincy,place-nqncy,966,896,
+Red,1,14,Wollaston,place-wlsta,1000,931,
 Red,1,13,North Quincy,place-nqncy,966,896,ff0000
-Red,1,14,Wollaston,place-wlsta,1000,931,ff0000
 Red,1,15,Quincy Center,place-qnctr,1034,963,ff0000
 Red,1,16,Quincy Adams,place-qamnl,1060,1000,ff0000
 Red,1,17,Braintree,place-brntn,1060,1051,ff0000
