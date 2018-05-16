@@ -48,6 +48,7 @@ h2 {
 
 .dashed{
    stroke-dasharray: 6,3;
+   animation: detourBlink 1s linear infinite;
 }
 
 #itemList {
@@ -88,4 +89,10 @@ td {
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
+}
+
+@keyframes detourBlink {
+  50% {
+    opacity: 0;
+  }
 }

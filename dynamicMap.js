@@ -361,19 +361,7 @@ function refreshDiagram (refreshMode) {
                             }
                             if (affectedStations.length > 0) {
                                 console.log(affectedStations);
-                                if (all_alerts[i]['effect'] == 'NO_SERVICE') {
-                                    // Seach for stationLocations
-                                    console.log(' = = = = = = = = = = = = =');
-                                    for (a = 0; a < stationLocations.length; a++) {
-                                        for (k = 0; k < affectedStations.length; k++) {
-                                            if (affectedStations[k] == stationLocations[a][4]) {
-                                                console.log('NEWLY CLOSED:');
-                                                console.log(stationLocations[a]);
-                                                stationLocations[a][8] = 'closed';
-                                            }
-                                        }
-                                    }
-                                } else if (all_alerts[i]['effect'] == 'DETOUR') {
+                                if (all_alerts[i]['effect'] == 'DETOUR') {
                                     // Search for lineSegments
                                     console.log(' - - - - - - - - - - - - -');
                                     var possibleMatches = [];
@@ -387,6 +375,18 @@ function refreshDiagram (refreshMode) {
                                                         // Edit row in map_segments so that line is black and dashed (and blinking?!)
                                                     }
                                                 }
+                                            }
+                                        }
+                                    }
+                                } else if (all_alerts[i]['effect'] == 'NO_SERVICE') {
+                                    // Seach for stationLocations
+                                    console.log(' = = = = = = = = = = = = =');
+                                    for (a = 0; a < stationLocations.length; a++) {
+                                        for (k = 0; k < affectedStations.length; k++) {
+                                            if (affectedStations[k] == stationLocations[a][4]) {
+                                                console.log('NEWLY CLOSED:');
+                                                console.log(stationLocations[a]);
+                                                stationLocations[a][8] = 'closed';
                                             }
                                         }
                                     }
@@ -419,7 +419,6 @@ function refreshDiagram (refreshMode) {
                     .attr('y2', function(d) { return yScale(d[9]) })
                     .attr('stroke', function(d){ return '#' + d[3] })
                     .attr('stroke-width', 12)
-                    .attr('stroke-opacity', 1)
                     .attr('fill', 'none')
                     .attr('class', function(d) {
                         if (d[3] == '000000') {
@@ -428,7 +427,6 @@ function refreshDiagram (refreshMode) {
                             return 'solid'
                         }
                     })
-                    // .on('start', animateSquare)
                     .on('mouseover', function(d) {      
                         div.transition()
                             .duration(200)      
@@ -456,9 +454,16 @@ function refreshDiagram (refreshMode) {
                     .attr('fill', function(d){ return '#ffffff' })
                     .style('opacity', function(d) {
                         if (d[8] == 'closed') {
-                            return 0.5
+                            return 0.6
                         } else {
                             return 1
+                        }
+                    })
+                    .attr('class', function(d) {
+                        if (d[8] == 'closed') {
+                            return 'dashed'
+                        } else {
+                            return 'solid'
                         }
                     });
 
@@ -468,9 +473,16 @@ function refreshDiagram (refreshMode) {
                 .append('text')
                     .attr('x', function(d) { return parseInt(xScale(d[5])) + 14 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
-                    .text(function(d) { return d[3] })
+                    .text(function(d) { 
+                        if (d[8] == 'closed') {
+                            return d[3]
+                        } else {
+                            return ''
+                        }
+                    })
                     .attr('font-family', 'sans-serif')
-                    .attr('font-size', '0px')
+                    .attr('font-size', '14px')
+                    .attr('text-decoration', 'line-through')
                     .attr('fill', function(d) {
                         if (d[8] == 'closed') {
                             return 'gray'
