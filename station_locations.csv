@@ -1,162 +1,181 @@
-Red,0,0,Alewife,place-alfcl,445,142,ff0000
-Red,0,1,Davis,place-davis,488,186,ff0000
-Red,0,2,Porter,place-portr,532,229,ff0000
-Red,0,3,Harvard,place-harsq,577,273,ff0000
-Red,0,4,Central,place-cntsq,618,317,ff0000
-Red,0,5,Kendall/MIT,place-knncl,662,360,ff0000
-Red,0,6,Charles/MGH,place-chmnl,715,412,ff0000
-Red,0,7,Park,place-pktrm,749,447,ff0000
-Red,0,8,Downtown Crossing,place-dwnxg,800,500,ff0000
-Red,0,9,South Station,place-sstat,851,550,ff0000
-Red,0,10,Broadway,place-brdwy,884,650,ff0000
-Red,0,11,Andrew,place-andrw,884,702,ff0000
-Red,0,12,JFK/UMass,place-jfk,884,752,ff0000
-Red,0,13,Savin Hill,place-shmnl,837,872,ff0000
-Red,0,14,Fields Corner,place-fldcr,837,896,ff0000
-Red,0,15,Shawmut,place-smmnl,837,919,ff0000
-Red,0,16,Ashmont,place-asmnl,837,941,ff0000
-Red,1,0,Alewife,place-alfcl,445,142,ff0000
-Red,1,1,Davis,place-davis,488,186,ff0000
-Red,1,2,Porter,place-portr,532,229,ff0000
-Red,1,3,Harvard,place-harsq,577,273,ff0000
-Red,1,4,Central,place-cntsq,618,317,ff0000
-Red,1,5,Kendall/MIT,place-knncl,662,360,ff0000
-Red,1,6,Charles/MGH,place-chmnl,715,412,ff0000
-Red,1,7,Park,place-pktrm,749,447,ff0000
-Red,1,8,Downtown Crossing,place-dwnxg,800,500,ff0000
-Red,1,9,South Station,place-sstat,851,550,ff0000
-Red,1,10,Broadway,place-brdwy,884,650,ff0000
-Red,1,11,Andrew,place-andrw,884,702,ff0000
-Red,1,12,JFK/UMass,place-jfk,884,752,ff0000
-Red,1,13,North Quincy,place-nqncy,966,896,
-Red,1,14,Wollaston,place-wlsta,1000,931,
-Red,1,13,North Quincy,place-nqncy,966,896,ff0000
-Red,1,15,Quincy Center,place-qnctr,1034,963,ff0000
-Red,1,16,Quincy Adams,place-qamnl,1060,1000,ff0000
-Red,1,17,Braintree,place-brntn,1060,1051,ff0000
-Orange,0,0,Oak Grove,place-ogmnl,825,60,ffa500
-Orange,0,1,Malden,place-mlmnl,825,95,ffa500
-Orange,0,2,Wellington,place-welln,825,128,ffa500
-Orange,0,3,Assembly,place-astao,825,162,ffa500
-Orange,0,4,Sullivan,place-sull,825,196,ffa500
-Orange,0,5,Community College,place-ccmnl,825,228,ffa500
-Orange,0,6,North Station,place-north,825,308,ffa500
-Orange,0,7,Haymarket,place-haecl,825,369,ffa500
-Orange,0,8,State,place-state,825,440,ffa500
-Orange,0,9,Downtown Crossing,place-dwnxg,800,500,ffa500
-Orange,0,10,Chinatown,place-chncl,749,548,ffa500
-Orange,0,11,Tufts Medical,place-tumnl,692,606,ffa500
-Orange,0,12,Back Bay,place-bbsta,660,638,ffa500
-Orange,0,13,Mass Ave,place-masta,630,669,ffa500
-Orange,0,14,Ruggles,place-rugg,600,700,ffa500
-Orange,0,15,Roxbury Crossing,place-rcmnl,568,730,ffa500
-Orange,0,16,Jackson,place-jaksn,528,769,ffa500
-Orange,0,17,Stony Brook,place-sbmnl,490,809,ffa500
-Orange,0,18,Green,place-grnst,451,848,ffa500
-Orange,0,19,Forest Hills,place-forhl,412,887,ffa500
-Mattapan,0,0,Ashmont,place-asmnl,837,956,ff0000
-Mattapan,0,1,Cedar Grove,place-cedgr,837,980,ff0000
-Mattapan,0,2,Butler,place-butlr,825,1006,ff0000
-Mattapan,0,3,Milton,place-miltt,799,1006,ff0000
-Mattapan,0,4,Central,place-cenav,772,1006,ff0000
-Mattapan,0,5,Valley,place-valrd,746,1006,ff0000
-Mattapan,0,6,Capan,place-capst,719,1006,ff0000
-Mattapan,0,7,Mattapan,place-matt,692,1006,ff0000
-Blue,0,0,Bowdoin,place-bomnl,752,373,003da5
-Blue,0,1,Government Center,place-gover,787,408,003da5
-Blue,0,2,State,place-state,825,440,003da5
-Blue,0,3,Aquarium,place-aqucl,872,400,003da5
-Blue,0,4,Maverick,place-mvbcl,944,328,003da5
-Blue,0,5,Airport,place-aport,970,303,003da5
-Blue,0,6,Wood Island,place-wimnl,996,276,003da5
-Blue,0,7,Orient Heights,place-orhte,1028,244,003da5
-Blue,0,8,Suffolk Downs,place-sdmnl,1061,212,003da5
-Blue,0,9,Beachmont,place-bmmnl,1092,179,003da5
-Blue,0,10,Revere Beach,place-rbmnl,1125,148,003da5
-Blue,0,11,Wonderland,place-wondl,1164,108,003da5
-Green-E,0,0,Lechmere,place-lech,782,267,00843d
-Green-E,0,1,Science Park,place-spmnl,805,289,00843d
-Green-E,0,2,North Station,place-north,825,308,00843d
-Green-E,0,3,Haymarket,place-haecl,825,369,00843d
-Green-E,0,4,Government Center,place-gover,787,408,00843d
-Green-E,0,5,Park,place-pktrm,749,447,00843d
-Green-E,0,6,Boylston,place-boyls,692,500,00843d
-Green-E,0,7,Arlington,place-armnl,640,500,00843d
-Green-E,0,8,Copley,place-coecl,589,500,00843d
-Green-E,0,9,Prudential,place-prmnl,556,555,00843d
-Green-E,0,10,Symphony,place-symcl,555,592,00843d
-Green-E,0,11,Northeastern,place-nuniv,542,611,00843d
-Green-E,0,12,MFA,place-mfa,527,625,00843d
-Green-E,0,13,LMA,place-lngmd,511,642,00843d
-Green-E,0,14,Brigham Circle,place-brmnl,495,657,00843d
-Green-E,0,15,Fenwood,place-fenwd,479,674,00843d
-Green-E,0,16,Mission Park,place-mispk,464,690,00843d
-Green-E,0,17,Riverway,place-rvrwy,447,705,00843d
-Green-E,0,18,Back of the Hill,place-bckhl,431,720,00843d
-Green-E,0,19,Heath,place-hsmnl,415,738,00843d
-Green-D,0,0,Government Center,place-gover,787,408,00843d
-Green-D,0,1,Park,place-pktrm,749,447,00843d
-Green-D,0,2,Boylston,place-boyls,692,500,00843d
-Green-D,0,3,Arlington,place-armnl,640,500,00843d
-Green-D,0,4,Copley,place-coecl,589,500,00843d
-Green-D,0,5,Hynes,place-hymnl,537,500,00843d
-Green-D,0,6,Kenmore,place-kencl,483,500,00843d
-Green-D,0,7,Fenway,place-fenwy,444,531,00843d
-Green-D,0,8,Longwood,place-longw,425,549,00843d
-Green-D,0,9,Brookline Village,place-bvmnl,406,568,00843d
-Green-D,0,10,Brookline Hills,place-brkhl,387,587,00843d
-Green-D,0,11,Beaconsfield,place-bcnfd,368,605,00843d
-Green-D,0,12,Reservoir,place-rsmnl,350,624,00843d
-Green-D,0,13,Chestnut Hill,place-chhil,332,643,00843d
-Green-D,0,14,Newton Centre,place-newto,312,662,00843d
-Green-D,0,15,Newton Highlands,place-newtn,294,680,00843d
-Green-D,0,16,Eliot,place-eliot,275,700,00843d
-Green-D,0,17,Waban,place-waban,256,717,00843d
-Green-D,0,18,Woodland,place-woodl,237,736,00843d
-Green-D,0,19,Riverside,place-river,208,753,00843d
-Green-C,0,0,North Station,place-north,825,308,00843d
-Green-C,0,1,Haymarket,place-haecl,825,369,00843d
-Green-C,0,2,Government Center,place-gover,787,408,00843d
-Green-C,0,3,Park,place-pktrm,749,447,00843d
-Green-C,0,4,Boylston,place-boyls,692,500,00843d
-Green-C,0,5,Arlington,place-armnl,640,500,00843d
-Green-C,0,6,Copley,place-coecl,589,500,00843d
-Green-C,0,7,Hynes,place-hymnl,537,500,00843d
-Green-C,0,8,Kenmore,place-kencl,483,500,00843d
-Green-C,0,9,St Marys,place-smary,412,481,00843d
-Green-C,0,10,Hawes,place-hwsst,396,465,00843d
-Green-C,0,11,Kent,place-kntst,364,446,00843d
-Green-C,0,12,St Paul,place-stpul,334,464,00843d
-Green-C,0,13,Coolidge Corner,place-cool,319,481,00843d
-Green-C,0,14,Summit,place-sumav,300,500,00843d
-Green-C,0,15,Brandon Hall,place-bndhl,281,518,00843d
-Green-C,0,16,Fairbanks,place-fbkst,262,536,00843d
-Green-C,0,17,Washington Square,,244,554,00843d
-Green-C,0,18,Tappan,place-tapst,224,574,00843d
-Green-C,0,19,Dean,place-denrd,207,592,00843d
-Green-C,0,20,Englewood,place-engav,188,612,00843d
-Green-C,0,21,Cleveland Circle,place-clmnl,158,628,00843d
-Green-B,0,0,Park,place-pktrm,749,447,00843d
-Green-B,0,1,Boylston,place-boyls,692,500,00843d
-Green-B,0,2,Arlington,place-armnl,640,500,00843d
-Green-B,0,3,Copley,place-coecl,589,500,00843d
-Green-B,0,4,Hynes,place-hymnl,537,500,00843d
-Green-B,0,5,Kenmore,place-kencl,483,500,00843d
-Green-B,0,6,Blandford,place-bland,454,484,00843d
-Green-B,0,7,BU East,place-buest,437,466,00843d
-Green-B,0,8,BU Central,place-bucen,419,449,00843d
-Green-B,0,9,BU West,place-buwst,404,433,00843d
-Green-B,0,10,St Paul,place-stplb,384,414,00843d
-Green-B,0,11,Pleasant,place-plsgr,368,398,00843d
-Green-B,0,12,Babcock,place-babck,349,378,00843d
-Green-B,0,13,Packards Corner,place-brico,331,360,00843d
-Green-B,0,14,Harvard,place-harvd,298,352,00843d
-Green-B,0,15,Griggs,place-grigg,268,360,00843d
-Green-B,0,16,Allston,place-alsgr,250,378,00843d
-Green-B,0,17,Warren,place-wrnst,232,396,00843d
-Green-B,0,18,Washington,place-wascm,216,413,00843d
-Green-B,0,19,Sutherland,place-sthld,199,432,00843d
-Green-B,0,20,Chiswick,place-chswk,180,450,00843d
-Green-B,0,21,Chestnut Hill,place-chill,162,466,00843d
-Green-B,0,22,South,place-sougr,145,484,00843d
-Green-B,0,23,Boston College,place-lake,115,500,00843d
+Red,0,0,Alewife,place-alfcl,445,142,ff0000,
+Red,0,1,Davis,place-davis,488,186,ff0000,
+Red,0,2,Porter,place-portr,532,229,ff0000,
+Red,0,3,Harvard,place-harsq,577,273,ff0000,
+Red,0,4,Central,place-cntsq,618,317,ff0000,
+Red,0,5,Kendall/MIT,place-knncl,662,360,ff0000,
+Red,0,6,Charles/MGH,place-chmnl,715,412,ff0000,
+Red,0,7,Park,place-pktrm,749,447,ff0000,
+Red,0,8,Downtown Crossing,place-dwnxg,800,500,ff0000,
+Red,0,9,South Station,place-sstat,851,550,ff0000,
+Red,0,9,,place-sstat,884,587,ff0000,1
+Red,0,10,Broadway,place-brdwy,884,650,ff0000,
+Red,0,11,Andrew,place-andrw,884,702,ff0000,
+Red,0,12,JFK/UMass,place-jfk,884,752,ff0000,
+Red,0,12,,place-jfk,884,806,ff0000,1
+Red,0,13,Savin Hill,place-shmnl,837,872,ff0000,
+Red,0,14,Fields Corner,place-fldcr,837,896,ff0000,
+Red,0,15,Shawmut,place-smmnl,837,919,ff0000,
+Red,0,16,Ashmont,place-asmnl,837,941,ff0000,
+Red,1,0,Alewife,place-alfcl,445,142,ff0000,
+Red,1,1,Davis,place-davis,488,186,ff0000,
+Red,1,2,Porter,place-portr,532,229,ff0000,
+Red,1,3,Harvard,place-harsq,577,273,ff0000,
+Red,1,4,Central,place-cntsq,618,317,ff0000,
+Red,1,5,Kendall/MIT,place-knncl,662,360,ff0000,
+Red,1,6,Charles/MGH,place-chmnl,715,412,ff0000,
+Red,1,7,Park,place-pktrm,749,447,ff0000,
+Red,1,8,Downtown Crossing,place-dwnxg,800,500,ff0000,
+Red,1,9,South Station,place-sstat,851,550,ff0000,
+Red,1,9,,place-sstat,884,587,ff0000,1
+Red,1,10,Broadway,place-brdwy,884,650,ff0000,
+Red,1,11,Andrew,place-andrw,884,702,ff0000,
+Red,1,12,JFK/UMass,place-jfk,884,752,ff0000,
+Red,1,13,,place-jfk,884,806,ff0000,1
+Red,1,14,North Quincy,place-nqncy,966,896,,
+Red,1,15,Wollaston,place-wlsta,1000,931,,
+Red,1,14,North Quincy,place-nqncy,966,896,ff0000,
+Red,1,16,Quincy Center,place-qnctr,1034,963,ff0000,
+Red,1,16,,place-qnctr,1055,985,ff0000,1
+Red,1,17,Quincy Adams,place-qamnl,1060,1000,ff0000,
+Red,1,18,Braintree,place-brntn,1060,1051,ff0000,
+Orange,0,0,Oak Grove,place-ogmnl,825,60,ffa500,
+Orange,0,1,Malden,place-mlmnl,825,95,ffa500,
+Orange,0,2,Wellington,place-welln,825,128,ffa500,
+Orange,0,3,Assembly,place-astao,825,162,ffa500,
+Orange,0,4,Sullivan,place-sull,825,196,ffa500,
+Orange,0,5,Community College,place-ccmnl,825,228,ffa500,
+Orange,0,6,North Station,place-north,825,308,ffa500,
+Orange,0,7,Haymarket,place-haecl,825,369,ffa500,
+Orange,0,8,State,place-state,825,440,ffa500,
+Orange,0,8,,place-state,824,473,ffa500,1
+Orange,0,9,Downtown Crossing,place-dwnxg,800,500,ffa500,
+Orange,0,10,Chinatown,place-chncl,749,548,ffa500,
+Orange,0,11,Tufts Medical,place-tumnl,692,606,ffa500,
+Orange,0,12,Back Bay,place-bbsta,660,638,ffa500,
+Orange,0,13,Mass Ave,place-masta,630,669,ffa500,
+Orange,0,14,Ruggles,place-rugg,600,700,ffa500,
+Orange,0,15,Roxbury Crossing,place-rcmnl,568,730,ffa500,
+Orange,0,16,Jackson,place-jaksn,528,769,ffa500,
+Orange,0,17,Stony Brook,place-sbmnl,490,809,ffa500,
+Orange,0,18,Green,place-grnst,451,848,ffa500,
+Orange,0,19,Forest Hills,place-forhl,412,887,ffa500,
+Mattapan,0,0,Ashmont,place-asmnl,837,956,ff0000,
+Mattapan,0,1,Cedar Grove,place-cedgr,837,980,ff0000,
+Mattapan,0,1,,place-cedgr,836,997,ff0000,1
+Mattapan,0,2,Butler,place-butlr,825,1006,ff0000,
+Mattapan,0,3,Milton,place-miltt,799,1006,ff0000,
+Mattapan,0,4,Central,place-cenav,772,1006,ff0000,
+Mattapan,0,5,Valley,place-valrd,746,1006,ff0000,
+Mattapan,0,6,Capan,place-capst,719,1006,ff0000,
+Mattapan,0,7,Mattapan,place-matt,692,1006,ff0000,
+Blue,0,0,Bowdoin,place-bomnl,752,373,003da5,
+Blue,0,1,Government Center,place-gover,787,408,003da5,
+Blue,0,2,State,place-state,825,440,003da5,
+Blue,0,3,Aquarium,place-aqucl,872,400,003da5,
+Blue,0,4,Maverick,place-mvbcl,944,328,003da5,
+Blue,0,5,Airport,place-aport,970,303,003da5,
+Blue,0,6,Wood Island,place-wimnl,996,276,003da5,
+Blue,0,7,Orient Heights,place-orhte,1028,244,003da5,
+Blue,0,8,Suffolk Downs,place-sdmnl,1061,212,003da5,
+Blue,0,9,Beachmont,place-bmmnl,1092,179,003da5,
+Blue,0,10,Revere Beach,place-rbmnl,1125,148,003da5,
+Blue,0,11,Wonderland,place-wondl,1164,108,003da5,
+Green-E,0,0,Lechmere,place-lech,782,267,00843d,
+Green-E,0,1,Science Park,place-spmnl,805,289,00843d,
+Green-E,0,2,North Station,place-north,825,308,00843d,
+Green-E,0,2,,place-north,844,338,00843d,1
+Green-E,0,3,Haymarket,place-haecl,825,369,00843d,
+Green-E,0,4,Government Center,place-gover,787,408,00843d,
+Green-E,0,5,Park,place-pktrm,749,447,00843d,
+Green-E,0,6,Boylston,place-boyls,692,500,00843d,
+Green-E,0,7,Arlington,place-armnl,640,500,00843d,
+Green-E,0,8,Copley,place-coecl,589,500,00843d,
+Green-E,0,8,,place-coecl,556,519,00843d,1
+Green-E,0,9,Prudential,place-prmnl,556,555,00843d,
+Green-E,0,10,Symphony,place-symcl,555,592,00843d,
+Green-E,0,11,Northeastern,place-nuniv,542,611,00843d,
+Green-E,0,12,MFA,place-mfa,527,625,00843d,
+Green-E,0,13,LMA,place-lngmd,511,642,00843d,
+Green-E,0,14,Brigham Circle,place-brmnl,495,657,00843d,
+Green-E,0,15,Fenwood,place-fenwd,479,674,00843d,
+Green-E,0,16,Mission Park,place-mispk,464,690,00843d,
+Green-E,0,17,Riverway,place-rvrwy,447,705,00843d,
+Green-E,0,18,Back of the Hill,place-bckhl,431,720,00843d,
+Green-E,0,19,Heath,place-hsmnl,415,738,00843d,
+Green-D,0,0,Government Center,place-gover,787,408,00843d,
+Green-D,0,1,Park,place-pktrm,749,447,00843d,
+Green-D,0,2,Boylston,place-boyls,692,500,00843d,
+Green-D,0,3,Arlington,place-armnl,640,500,00843d,
+Green-D,0,4,Copley,place-coecl,589,500,00843d,
+Green-D,0,5,Hynes,place-hymnl,537,500,00843d,
+Green-D,0,6,Kenmore,place-kencl,483,500,00843d,
+Green-D,0,6,,place-kencl,471,500,00843d,1
+Green-D,0,7,Fenway,place-fenwy,444,531,00843d,
+Green-D,0,8,Longwood,place-longw,425,549,00843d,
+Green-D,0,9,Brookline Village,place-bvmnl,406,568,00843d,
+Green-D,0,10,Brookline Hills,place-brkhl,387,587,00843d,
+Green-D,0,11,Beaconsfield,place-bcnfd,368,605,00843d,
+Green-D,0,12,Reservoir,place-rsmnl,350,624,00843d,
+Green-D,0,13,Chestnut Hill,place-chhil,332,643,00843d,
+Green-D,0,14,Newton Centre,place-newto,312,662,00843d,
+Green-D,0,15,Newton Highlands,place-newtn,294,680,00843d,
+Green-D,0,16,Eliot,place-eliot,275,700,00843d,
+Green-D,0,17,Waban,place-waban,256,717,00843d,
+Green-D,0,18,Woodland,place-woodl,237,736,00843d,
+Green-D,0,18,,place-woodl,228,747,00843d,1
+Green-D,0,19,Riverside,place-river,208,753,00843d,
+Green-C,0,0,North Station,place-north,825,308,00843d,
+Green-C,0,0,,place-north,844,338,00843d,1
+Green-C,0,1,Haymarket,place-haecl,825,369,00843d,
+Green-C,0,2,Government Center,place-gover,787,408,00843d,
+Green-C,0,3,Park,place-pktrm,749,447,00843d,
+Green-C,0,4,Boylston,place-boyls,692,500,00843d,
+Green-C,0,5,Arlington,place-armnl,640,500,00843d,
+Green-C,0,6,Copley,place-coecl,589,500,00843d,
+Green-C,0,7,Hynes,place-hymnl,537,500,00843d,
+Green-C,0,8,Kenmore,place-kencl,483,500,00843d,
+Green-C,0,8,,place-kencl,471,500,00843d,1
+Green-C,0,8,,place-kencl,432,497,00843d,,1
+Green-C,0,9,St Marys,place-smary,412,481,00843d,
+Green-C,0,10,Hawes,place-hwsst,396,465,00843d,
+Green-C,0,11,Kent,place-kntst,364,446,00843d,
+Green-C,0,12,St Paul,place-stpul,334,464,00843d,
+Green-C,0,13,Coolidge Corner,place-cool,319,481,00843d,
+Green-C,0,14,Summit,place-sumav,300,500,00843d,
+Green-C,0,15,Brandon Hall,place-bndhl,281,518,00843d,
+Green-C,0,16,Fairbanks,place-fbkst,262,536,00843d,
+Green-C,0,17,Washington Square,,244,554,00843d,
+Green-C,0,18,Tappan,place-tapst,224,574,00843d,
+Green-C,0,19,Dean,place-denrd,207,592,00843d,
+Green-C,0,20,Englewood,place-engav,188,612,00843d,
+Green-C,0,20,,place-engav,178,622,00843d,1
+Green-C,0,21,Cleveland Circle,place-clmnl,158,628,00843d,
+Green-B,0,0,Park,place-pktrm,749,447,00843d,
+Green-B,0,1,Boylston,place-boyls,692,500,00843d,
+Green-B,0,2,Arlington,place-armnl,640,500,00843d,
+Green-B,0,3,Copley,place-coecl,589,500,00843d,
+Green-B,0,4,Hynes,place-hymnl,537,500,00843d,
+Green-B,0,5,Kenmore,place-kencl,483,500,00843d,
+Green-B,0,5,,place-kenc,471,500,00843d,1
+Green-B,0,6,Blandford,place-bland,454,484,00843d,
+Green-B,0,7,BU East,place-buest,437,466,00843d,
+Green-B,0,8,BU Central,place-bucen,419,449,00843d,
+Green-B,0,9,BU West,place-buwst,404,433,00843d,
+Green-B,0,10,St Paul,place-stplb,384,414,00843d,
+Green-B,0,11,Pleasant,place-plsgr,368,398,00843d,
+Green-B,0,12,Babcock,place-babck,349,378,00843d,
+Green-B,0,13,Packards Corner,place-brico,331,360,00843d,
+Green-B,0,13,,place-brico,314,352,00843d,1
+Green-B,0,14,Harvard,place-harvd,298,352,00843d,
+Green-B,0,14,,place-harvd,284,352,00843d,1
+Green-B,0,15,Griggs,place-grigg,268,360,00843d,
+Green-B,0,16,Allston,place-alsgr,250,378,00843d,
+Green-B,0,17,Warren,place-wrnst,232,396,00843d,
+Green-B,0,18,Washington,place-wascm,216,413,00843d,
+Green-B,0,19,Sutherland,place-sthld,199,432,00843d,
+Green-B,0,20,Chiswick,place-chswk,180,450,00843d,
+Green-B,0,21,Chestnut Hill,place-chill,162,466,00843d,
+Green-B,0,22,South,place-sougr,145,484,00843d,
+Green-B,0,23,,place-sougr,136,494,00843d,1
+Green-B,0,24,Boston College,place-lake,115,500,00843d,

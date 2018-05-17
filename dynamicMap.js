@@ -58,8 +58,9 @@ $.ajax({
 });
 
 var stationLocations = [];
+var nodeLocations = [];
 for (i = 0; i < preStationLocations.length; i++) {
-    newStation = [
+    newNode = [
         preStationLocations[i][0],
         preStationLocations[i][1],
         preStationLocations[i][2],
@@ -70,26 +71,33 @@ for (i = 0; i < preStationLocations.length; i++) {
         preStationLocations[i][7],
         'open'
     ]
-    stationLocations.push(newStation);
+    nodeLocations.push(newNode);
+    if (preStationLocations[i][8] != '1') {
+        console.log(preStationLocations[i][8])
+        stationLocations.push(newNode);
+    } else {
+        console.log('!!!!')
+        console.log(preStationLocations[i])
+    }
 }
 
 var lineSegments = [];
-for (i = 0; i < stationLocations.length; i++) {
-    if (stationLocations[i][2] != '0' && stationLocations[i][2] != 0) {
+for (i = 0; i < nodeLocations.length; i++) {
+    if (nodeLocations[i][2] != '0' && nodeLocations[i][2] != 0) {
         newSegment = [
-            stationLocations[i][0],
-            stationLocations[i][1],
-            stationLocations[i-1][2],
-            stationLocations[i-1][7],
-            stationLocations[i-1][4],
-            stationLocations[i-1][5],
-            stationLocations[i-1][6],
-            stationLocations[i][4],
-            stationLocations[i][5],
-            stationLocations[i][6],
-            stationLocations[i-1][3],
-            stationLocations[i][3],
-            stationLocations[i-1][7]
+            nodeLocations[i][0],
+            nodeLocations[i][1],
+            nodeLocations[i-1][2],
+            nodeLocations[i-1][7],
+            nodeLocations[i-1][4],
+            nodeLocations[i-1][5],
+            nodeLocations[i-1][6],
+            nodeLocations[i][4],
+            nodeLocations[i][5],
+            nodeLocations[i][6],
+            nodeLocations[i-1][3],
+            nodeLocations[i][3],
+            nodeLocations[i-1][7]
         ]
         lineSegments.push(newSegment);
     }
@@ -396,7 +404,9 @@ function refreshDiagram (refreshMode) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][3] = '000000';
-                                                        // Edit row in map_segments so that line is black and dashed (and blinking?!)
+                                                    } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
+                                                        // This means we found an impacted line segment which needs modification
+                                                        lineSegments[c][3] = '000000';
                                                     }
                                                 }
                                             }
@@ -502,7 +512,7 @@ function refreshDiagram (refreshMode) {
                 .data(stationLocations) // used to contain ( points )
                 .enter()
                 .append('text')
-                    .attr('x', function(d) { return parseInt(xScale(d[5])) + 14 })
+                    .attr('x', function(d) { return parseInt(xScale(d[5])) + 25 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { 
                         if (d[8] == 'closed' || d[8] == 'shuttled') {
