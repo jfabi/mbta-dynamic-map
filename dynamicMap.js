@@ -59,14 +59,38 @@ $.ajax({
 
 var stationLocations = [];
 for (i = 0; i < preStationLocations.length; i++) {
-    newStation = [preStationLocations[i][0],preStationLocations[i][1],preStationLocations[i][2],preStationLocations[i][3],preStationLocations[i][4],preStationLocations[i][5],preStationLocations[i][6],preStationLocations[i][7],'open']
+    newStation = [
+        preStationLocations[i][0],
+        preStationLocations[i][1],
+        preStationLocations[i][2],
+        preStationLocations[i][3],
+        preStationLocations[i][4],
+        preStationLocations[i][5],
+        preStationLocations[i][6],
+        preStationLocations[i][7],
+        'open'
+    ]
     stationLocations.push(newStation);
 }
 
 var lineSegments = [];
 for (i = 0; i < stationLocations.length; i++) {
     if (stationLocations[i][2] != '0' && stationLocations[i][2] != 0) {
-        newSegment = [stationLocations[i][0],stationLocations[i][1],stationLocations[i-1][2],stationLocations[i-1][7],stationLocations[i-1][4],stationLocations[i-1][5],stationLocations[i-1][6],stationLocations[i][4],stationLocations[i][5],stationLocations[i][6],stationLocations[i-1][3],stationLocations[i][3],stationLocations[i-1][7]]
+        newSegment = [
+            stationLocations[i][0],
+            stationLocations[i][1],
+            stationLocations[i-1][2],
+            stationLocations[i-1][7],
+            stationLocations[i-1][4],
+            stationLocations[i-1][5],
+            stationLocations[i-1][6],
+            stationLocations[i][4],
+            stationLocations[i][5],
+            stationLocations[i][6],
+            stationLocations[i-1][3],
+            stationLocations[i][3],
+            stationLocations[i-1][7]
+        ]
         lineSegments.push(newSegment);
     }
 }
@@ -377,6 +401,13 @@ function refreshDiagram (refreshMode) {
                                                 }
                                             }
                                         }
+                                        for (d = 0; d < stationLocations.length; d++) {
+                                            if (affectedStations[a] == stationLocations[d][4]) {
+                                                console.log('NEWLY SHUTTLED:');
+                                                console.log(stationLocations[d]);
+                                                stationLocations[d][8] = 'shuttled';
+                                            }
+                                        }
                                     }
                                 } else if (all_alerts[i]['effect'] == 'NO_SERVICE') {
                                     // Seach for stationLocations
@@ -474,7 +505,7 @@ function refreshDiagram (refreshMode) {
                     .attr('x', function(d) { return parseInt(xScale(d[5])) + 14 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { 
-                        if (d[8] == 'closed') {
+                        if (d[8] == 'closed' || d[8] == 'shuttled') {
                             return d[3]
                         } else {
                             return ''
@@ -482,7 +513,13 @@ function refreshDiagram (refreshMode) {
                     })
                     .attr('font-family', 'sans-serif')
                     .attr('font-size', '14px')
-                    .attr('text-decoration', 'line-through')
+                    .attr('text-decoration', function(d) {
+                        if (d[8] == 'closed') {
+                            return 'line-through'
+                        } else {
+                            return 'none'
+                        }
+                    })
                     .attr('fill', function(d) {
                         if (d[8] == 'closed') {
                             return 'gray'
