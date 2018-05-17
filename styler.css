@@ -51,7 +51,15 @@ h2 {
    animation: detourBlink 1s linear infinite;
 }
 
-.delayed{
+.minorDelayed{
+   animation: detourBlink 4s linear infinite;
+}
+
+.moderateDelayed{
+   animation: detourBlink 2s linear infinite;
+}
+
+.severeDelayed{
    animation: detourBlink 1s linear infinite;
 }
 

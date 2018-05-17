@@ -70,6 +70,7 @@ for (i = 0; i < preStationLocations.length; i++) {
         preStationLocations[i][6],
         preStationLocations[i][7],
         'open',
+        '',
         ''
     ]
     nodeLocations.push(newNode);
@@ -100,6 +101,7 @@ for (i = 0; i < nodeLocations.length; i++) {
             nodeLocations[i][3],
             nodeLocations[i-1][7],
             'open',
+            '',
             ''
         ]
         lineSegments.push(newSegment);
@@ -395,10 +397,20 @@ function refreshDiagram (refreshMode) {
                                 }
                             }
                             var alertHeader = ''
+                            var severity = ''
                             try {
                                 alertHeader = all_alerts[i]['header_text']
+                                var preSeverity = all_alerts[i]['severity']
+                                if (preSeverity == 'Severe' || preSeverity == '7' || preSeverity == '8' || preSeverity == '9') {
+                                    severity = 'Severe'
+                                } else if (preSeverity == 'Moderate' || preSeverity == '5' || preSeverity == '6') {
+                                    severity = 'Moderate'
+                                } else if (preSeverity == 'Minor' || preSeverity == '3' || preSeverity == '4') {
+                                    severity = 'Minor'
+                                }
                             } catch (err) {
                                 alertHeader = 'An alert has been issued'
+                                severity = 'Informational'
                             }
                             if (affectedStations.length > 0) {
                                 console.log(affectedStations);
@@ -413,11 +425,13 @@ function refreshDiagram (refreshMode) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'shuttled';
-                                                        lineSegments[c][14] = alertHeader;
+                                                        lineSegments[c][14] = severity;
+                                                        lineSegments[c][15] = alertHeader;
                                                     } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'shuttled';
-                                                        lineSegments[c][14] = alertHeader;
+                                                        lineSegments[c][14] = severity;
+                                                        lineSegments[c][15] = alertHeader;
                                                     }
                                                 }
                                             }
@@ -427,7 +441,8 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY SHUTTLED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'shuttled';
-                                                stationLocations[a][9] = alertHeader;
+                                                stationLocations[a][9] = severity;
+                                                stationLocations[a][10] = alertHeader;
                                             }
                                         }
                                     }
@@ -440,7 +455,8 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY CLOSED:');
                                                 console.log(stationLocations[a]);
                                                 stationLocations[a][8] = 'closed';
-                                                stationLocations[a][9] = alertHeader;
+                                                stationLocations[a][9] = severity;
+                                                stationLocations[a][10] = alertHeader;
                                             }
                                         }
                                     }
@@ -455,11 +471,13 @@ function refreshDiagram (refreshMode) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'delayed';
-                                                        lineSegments[c][14] = alertHeader;
+                                                        lineSegments[c][14] = severity;
+                                                        lineSegments[c][15] = alertHeader;
                                                     } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'delayed';
-                                                        lineSegments[c][14] = alertHeader;
+                                                        lineSegments[c][14] = severity;
+                                                        lineSegments[c][15] = alertHeader;
                                                     }
                                                 }
                                             }
@@ -469,6 +487,8 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY DELAYED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'delayed';
+                                                stationLocations[a][9] = severity;
+                                                stationLocations[a][10] = alertHeader;
                                             }
                                         }
                                     }
@@ -502,6 +522,8 @@ function refreshDiagram (refreshMode) {
                     .attr('stroke', function(d){
                         if (d[13] == 'shuttled') {
                             return '#000000'
+                        } else if (d[13] == 'delayed' && d[14] == 'Severe') {
+                            return '#000000'
                         } else {
                             return '#' + d[3]
                         } 
@@ -511,19 +533,23 @@ function refreshDiagram (refreshMode) {
                     .attr('class', function(d) {
                         if (d[13] == 'shuttled') {
                             return 'shuttled'
-                        } else if (d[13] == 'delayed') {
-                            return 'delayed'
+                        } else if (d[13] == 'delayed' && d[14] == 'Severe') {
+                            return 'severeDelayed'
+                        } else if (d[13] == 'delayed' && d[14] == 'Moderate') {
+                            return 'moderateDelayed'
+                        } else if (d[13] == 'delayed' && d[14] == 'Minor') {
+                            return 'minorDelayed'
                         } else {
                             return 'solid'
                         }
                     })
                     .on('mouseover', function(d) {
-                        if (d[14] != '') {
+                        if (d[15] != '') {
                             div.transition()
                                 .duration(200)      
                                 .style('opacity', 1);       
-                            div.html('<large><b>Alert</b></large><br>' +
-                                     d[14]
+                            div.html('<large><b>' + d[14] + ' alert</b></large><br>' +
+                                     d[15]
                                     )
                                 .style('left', (d3.event.pageX - 150) + 'px')       
                                 .style('top', (d3.event.pageY - 70) + 'px')
@@ -531,7 +557,7 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .on('mouseout', function(d) { 
-                        if (d[14] != '') {
+                        if (d[15] != '') {
                             div.transition()        
                                 .duration(500)      
                                 .style('opacity', 0); 
@@ -562,22 +588,22 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .on('mouseover', function(d) {
-                        if (d[9] != '') {
+                        if (d[10] != '') {
                             div.transition()
-                                .duration(200)      
-                                .style('opacity', 1);       
-                            div.html('<large><b>Alert</b></large><br>' +
-                                     d[9]
+                                .duration(200)
+                                .style('opacity', 1);
+                            div.html('<large><b>' + d[9] + ' alert</b></large><br>' +
+                                     d[10]
                                     )
-                                .style('left', (d3.event.pageX - 150) + 'px')       
+                                .style('left', (d3.event.pageX - 150) + 'px')
                                 .style('top', (d3.event.pageY - 70) + 'px')
                                 .style('width', '250px');
                         }
                     })
                     .on('mouseout', function(d) { 
-                        if (d[9] != '') {
-                            div.transition()        
-                                .duration(500)      
+                        if (d[10] != '') {
+                            div.transition()
+                                .duration(500)
                                 .style('opacity', 0); 
                         }  
                     });
@@ -612,12 +638,12 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .on('mouseover', function(d) {
-                        if (d[9] != '') {
+                        if (d[10] != '') {
                             div.transition()
                                 .duration(200)      
                                 .style('opacity', 1);       
-                            div.html('<large><b>Alert</b></large><br>' +
-                                     d[9]
+                            div.html('<large><b>' + d[9] + ' alert</b></large><br>' +
+                                     d[10]
                                     )
                                 .style('left', (d3.event.pageX - 150) + 'px')       
                                 .style('top', (d3.event.pageY - 70) + 'px')
@@ -625,7 +651,7 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .on('mouseout', function(d) { 
-                        if (d[9] != '') {
+                        if (d[10] != '') {
                             div.transition()        
                                 .duration(500)      
                                 .style('opacity', 0); 
