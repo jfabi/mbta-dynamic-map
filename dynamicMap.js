@@ -69,7 +69,8 @@ for (i = 0; i < preStationLocations.length; i++) {
         preStationLocations[i][5],
         preStationLocations[i][6],
         preStationLocations[i][7],
-        'open'
+        'open',
+        ''
     ]
     nodeLocations.push(newNode);
     if (preStationLocations[i][8] != '1') {
@@ -98,7 +99,8 @@ for (i = 0; i < nodeLocations.length; i++) {
             nodeLocations[i-1][3],
             nodeLocations[i][3],
             nodeLocations[i-1][7],
-            'open'
+            'open',
+            ''
         ]
         lineSegments.push(newSegment);
     }
@@ -332,7 +334,7 @@ function refreshDiagram (refreshMode) {
                             }
                         }
 
-                        if (alertRelevant == true && (all_alerts[i]['effect'] == 'DETOUR' || all_alerts[i]['effect'] == 'NO_SERVICE')) {
+                        if (alertRelevant == true && (all_alerts[i]['effect'] == 'DETOUR' || all_alerts[i]['effect'] == 'NO_SERVICE' || all_alerts[i]['effect'] == 'DELAY')) {
                             // Relevant alert in terms of valid period and effect type; now determine impacted locations
 
                             affectedStations = [];
@@ -392,6 +394,12 @@ function refreshDiagram (refreshMode) {
                                     }
                                 }
                             }
+                            var alertHeader = ''
+                            try {
+                                alertHeader = all_alerts[i]['header_text']
+                            } catch (err) {
+                                alertHeader = 'An alert has been issued'
+                            }
                             if (affectedStations.length > 0) {
                                 console.log(affectedStations);
                                 if (all_alerts[i]['effect'] == 'DETOUR') {
@@ -405,9 +413,11 @@ function refreshDiagram (refreshMode) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'shuttled';
+                                                        lineSegments[c][14] = alertHeader;
                                                     } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'shuttled';
+                                                        lineSegments[c][14] = alertHeader;
                                                     }
                                                 }
                                             }
@@ -417,6 +427,7 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY SHUTTLED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'shuttled';
+                                                stationLocations[a][9] = alertHeader;
                                             }
                                         }
                                     }
@@ -429,6 +440,7 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY CLOSED:');
                                                 console.log(stationLocations[a]);
                                                 stationLocations[a][8] = 'closed';
+                                                stationLocations[a][9] = alertHeader;
                                             }
                                         }
                                     }
@@ -443,9 +455,11 @@ function refreshDiagram (refreshMode) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'delayed';
+                                                        lineSegments[c][14] = alertHeader;
                                                     } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
                                                         // This means we found an impacted line segment which needs modification
                                                         lineSegments[c][13] = 'delayed';
+                                                        lineSegments[c][14] = alertHeader;
                                                     }
                                                 }
                                             }
@@ -504,19 +518,24 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .on('mouseover', function(d) {
-                        div.transition()
-                            .duration(200)      
-                            .style('opacity', 1);       
-                        div.html('<large><b>Between</b></large><br>' +
-                                 d[10] + ' and ' + d[11] + '<br>on line <b>' + d[0] + '</b>'
-                                )
-                            .style('left', (d3.event.pageX - 250) + 'px')       
-                            .style('top', (d3.event.pageY - 70) + 'px');   
+                        if (d[14] != '') {
+                            div.transition()
+                                .duration(200)      
+                                .style('opacity', 1);       
+                            div.html('<large><b>Alert</b></large><br>' +
+                                     d[14]
+                                    )
+                                .style('left', (d3.event.pageX - 150) + 'px')       
+                                .style('top', (d3.event.pageY - 70) + 'px')
+                                .style('width', '250px');
+                        }
                     })
-                    .on('mouseout', function(d) {       
-                        div.transition()        
-                            .duration(500)      
-                            .style('opacity', 0);   
+                    .on('mouseout', function(d) { 
+                        if (d[14] != '') {
+                            div.transition()        
+                                .duration(500)      
+                                .style('opacity', 0); 
+                        }  
                     });
 
             vis.selectAll('circle.points')
@@ -541,6 +560,26 @@ function refreshDiagram (refreshMode) {
                         } else {
                             return 'solid'
                         }
+                    })
+                    .on('mouseover', function(d) {
+                        if (d[9] != '') {
+                            div.transition()
+                                .duration(200)      
+                                .style('opacity', 1);       
+                            div.html('<large><b>Alert</b></large><br>' +
+                                     d[9]
+                                    )
+                                .style('left', (d3.event.pageX - 150) + 'px')       
+                                .style('top', (d3.event.pageY - 70) + 'px')
+                                .style('width', '250px');
+                        }
+                    })
+                    .on('mouseout', function(d) { 
+                        if (d[9] != '') {
+                            div.transition()        
+                                .duration(500)      
+                                .style('opacity', 0); 
+                        }  
                     });
 
             vis.selectAll('text')
@@ -571,6 +610,26 @@ function refreshDiagram (refreshMode) {
                         } else {
                             return '#000000'
                         }
+                    })
+                    .on('mouseover', function(d) {
+                        if (d[9] != '') {
+                            div.transition()
+                                .duration(200)      
+                                .style('opacity', 1);       
+                            div.html('<large><b>Alert</b></large><br>' +
+                                     d[9]
+                                    )
+                                .style('left', (d3.event.pageX - 150) + 'px')       
+                                .style('top', (d3.event.pageY - 70) + 'px')
+                                .style('width', '250px');
+                        }
+                    })
+                    .on('mouseout', function(d) { 
+                        if (d[9] != '') {
+                            div.transition()        
+                                .duration(500)      
+                                .style('opacity', 0); 
+                        }  
                     });
 
             var monthNames = [
