@@ -46,8 +46,12 @@ h2 {
    stroke: solid;
 }
 
-.dashed{
+.shuttled{
    stroke-dasharray: 6,3;
+   animation: detourBlink 1s linear infinite;
+}
+
+.delayed{
    animation: detourBlink 1s linear infinite;
 }
 

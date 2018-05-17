@@ -97,7 +97,8 @@ for (i = 0; i < nodeLocations.length; i++) {
             nodeLocations[i][6],
             nodeLocations[i-1][3],
             nodeLocations[i][3],
-            nodeLocations[i-1][7]
+            nodeLocations[i-1][7],
+            'open'
         ]
         lineSegments.push(newSegment);
     }
@@ -403,10 +404,10 @@ function refreshDiagram (refreshMode) {
                                                 for (c = 0; c < lineSegments.length; c++) {
                                                     if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
                                                         // This means we found an impacted line segment which needs modification
-                                                        lineSegments[c][3] = '000000';
+                                                        lineSegments[c][13] = 'shuttled';
                                                     } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
                                                         // This means we found an impacted line segment which needs modification
-                                                        lineSegments[c][3] = '000000';
+                                                        lineSegments[c][13] = 'shuttled';
                                                     }
                                                 }
                                             }
@@ -428,6 +429,32 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY CLOSED:');
                                                 console.log(stationLocations[a]);
                                                 stationLocations[a][8] = 'closed';
+                                            }
+                                        }
+                                    }
+                                } else if (all_alerts[i]['effect'] == 'DELAY') {
+                                    // Seach for stationLocations
+                                    console.log(' / / / / / / / / / / / / /');
+                                    var possibleMatches = [];
+                                    for (a = 0; a < affectedStations.length; a++) {
+                                        for (b = 0; b < affectedStations.length; b++) {
+                                            if (affectedStations[a] != affectedStations[b]) {
+                                                for (c = 0; c < lineSegments.length; c++) {
+                                                    if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
+                                                        // This means we found an impacted line segment which needs modification
+                                                        lineSegments[c][13] = 'delayed';
+                                                    } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
+                                                        // This means we found an impacted line segment which needs modification
+                                                        lineSegments[c][13] = 'delayed';
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        for (d = 0; d < stationLocations.length; d++) {
+                                            if (affectedStations[a] == stationLocations[d][4]) {
+                                                console.log('NEWLY DELAYED:');
+                                                console.log(stationLocations[d]);
+                                                stationLocations[d][8] = 'delayed';
                                             }
                                         }
                                     }
@@ -458,17 +485,25 @@ function refreshDiagram (refreshMode) {
                     .attr('y1', function(d) { return yScale(d[6]) })
                     .attr('x2', function(d) { return xScale(d[8]) })
                     .attr('y2', function(d) { return yScale(d[9]) })
-                    .attr('stroke', function(d){ return '#' + d[3] })
+                    .attr('stroke', function(d){
+                        if (d[13] == 'shuttled') {
+                            return '#000000'
+                        } else {
+                            return '#' + d[3]
+                        } 
+                    })
                     .attr('stroke-width', 12)
                     .attr('fill', 'none')
                     .attr('class', function(d) {
-                        if (d[3] == '000000') {
-                            return 'dashed'
+                        if (d[13] == 'shuttled') {
+                            return 'shuttled'
+                        } else if (d[13] == 'delayed') {
+                            return 'delayed'
                         } else {
                             return 'solid'
                         }
                     })
-                    .on('mouseover', function(d) {      
+                    .on('mouseover', function(d) {
                         div.transition()
                             .duration(200)      
                             .style('opacity', 1);       
@@ -502,7 +537,7 @@ function refreshDiagram (refreshMode) {
                     })
                     .attr('class', function(d) {
                         if (d[8] == 'closed') {
-                            return 'dashed'
+                            return 'shuttled'
                         } else {
                             return 'solid'
                         }
@@ -515,7 +550,7 @@ function refreshDiagram (refreshMode) {
                     .attr('x', function(d) { return parseInt(xScale(d[5])) + 25 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { 
-                        if (d[8] == 'closed' || d[8] == 'shuttled') {
+                        if (d[8] == 'closed' || d[8] == 'shuttled' || d[8] == 'delayed') {
                             return d[3]
                         } else {
                             return ''
