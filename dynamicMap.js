@@ -8,6 +8,23 @@ Last updated 24 December 2017
 
 apiKey = config.V2_API_KEY
 
+function parseTimestamp(timestamp) {
+    // example of format: '2017-06-12T11:05:03-04:00'
+    // console.log(timestamp)
+    var year = parseInt(timestamp.substring(0,4));
+    var month = parseInt(timestamp.substring(5,7)) - 1;
+    var day = parseInt(timestamp.substring(8,10));
+    var hour = parseInt(timestamp.substring(11,13));
+    var minute = parseInt(timestamp.substring(14,16));
+    var second = parseInt(timestamp.substring(17,19));
+    if (hour == 6 && day == 24) {
+        console.log(timestamp)
+        console.log(month)
+    }
+    var dateObject = new Date(year, month, day, hour, minute, second);
+    return dateObject.getTime()/1000;
+}
+
 var time = document.getElementsByClassName('timeField'); //Get all elements with class "time"
 for (var i = 0; i < time.length; i++) { //Loop trough elements
     time[i].addEventListener('keyup', function (e) {; //Add event listener to every element
@@ -153,8 +170,8 @@ function refreshDiagram (refreshMode) {
         var endTime = '';
         if (timeInput.value == 'midday') {
             console.log('This is midday');
-            startTime = '12:00:00';
-            endTime = '12:00:00';
+            startTime = '10:00:00';
+            endTime = '10:00:00';
         }
         if (timeInput.value == 'night') {
             console.log('This is nighttime');
@@ -306,11 +323,10 @@ function refreshDiagram (refreshMode) {
 
         jQuery(document).ready(function($) {
             $.ajax({
-                url : "https://realtime.mbta.com/developer/api/v2/alerts?api_key=" + apiKey + "&include_access_alerts=false&include_service_alerts=true&format=json",
+                url : "https://api-v3.mbta.com/alerts?filter[activity]=BOARD,EXIT,RIDE,USING_WHEELCHAIR",
                 dataType : "json",
                 success : function(parsed_json) {
-
-                    var all_alerts = parsed_json['alerts'];
+                    var all_alerts = parsed_json['data'];
                     var display = '';
                     var display1 = '';
                     var counterAlert = 0;
@@ -325,46 +341,40 @@ function refreshDiagram (refreshMode) {
                         // }
 
                         var alertRelevant = false;
-                        for(h = 0; h < all_alerts[i]['effect_periods'].length; h++) {
-
-                            if (all_alerts[i]['effect_periods'][h]['effect_end'] == '' && timeFrom >= parseInt(all_alerts[i]['effect_periods'][h]['effect_start'])) {
+                        for(h = 0; h < all_alerts[i]['attributes']['active_period'].length; h++) {
+                            if (all_alerts[i]['attributes']['active_period'][h]['end'] == null && timeFrom >= parseTimestamp(all_alerts[i]['attributes']['active_period'][h]['start'])) {
                                 alertRelevant = true;
                                 break;
-                            } else if (timeFrom <= parseInt(all_alerts[i]['effect_periods'][h]['effect_end']) && timeFrom >= parseInt(all_alerts[i]['effect_periods'][h]['effect_start'])) {
-                                alertRelevant = true;
-                                break;
+                            } else {
+                                try {
+                                    if (timeFrom <= parseTimestamp(all_alerts[i]['attributes']['active_period'][h]['end']) && timeFrom >= parseTimestamp(all_alerts[i]['attributes']['active_period'][h]['start'])) {
+                                        alertRelevant = true;
+                                        break;
+                                    }
+                                } catch (err) {
+                                    // No end timestamp associated with this alert
+                                }
                             }
                         }
 
-                        if (alertRelevant == true && (all_alerts[i]['effect'] == 'DETOUR' || all_alerts[i]['effect'] == 'NO_SERVICE' || all_alerts[i]['effect'] == 'DELAY')) {
+                        if (alertRelevant == true && (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'DELAY')) {
                             // Relevant alert in terms of valid period and effect type; now determine impacted locations
 
                             affectedStations = [];
-                            for (g = 0; g < all_alerts[i]['affected_services']['services'].length; g++) {
+                            for (g = 0; g < all_alerts[i]['attributes']['informed_entity'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
-                                if (all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Red' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Orange' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Mattapan' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Blue' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-B' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-C' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-D' || all_alerts[i]['affected_services']['services'][g]['route_id'] == 'Green-E') {
+                                var singleInformedEntity = all_alerts[i]['attributes']['informed_entity'][g];
+                                try {
+                                    if (singleInformedEntity['route'] == 'Red' || singleInformedEntity['route'] == 'Orange' || singleInformedEntity['route'] == 'Mattapan' || singleInformedEntity['route'] == 'Blue' || singleInformedEntity['route'] == 'Green-B' || singleInformedEntity['route'] == 'Green-C' || singleInformedEntity['route'] == 'Green-D' || singleInformedEntity['route'] == 'Green-E') {
 
-                                    console.log('FOUND RED/ORANGE ALERT:');
-                                    console.log(all_alerts[i]);
-                                    console.log(all_alerts[i]['affected_services']['services'][g])
+                                        console.log('FOUND RAPID TRANSIT ALERT:');
+                                        console.log(all_alerts[i]);
+                                        console.log(singleInformedEntity);
 
-                                    if (all_alerts[i]['affected_services']['services'][g]['stop_id'] == null) {
-                                        console.log('PROBLEM WITH!!!')
-                                        for (a = 0; a < preStationLocations.length; a++) {
-                                            console.log('a:')
-                                            console.log(a)
-                                            if (preStationLocations[a][0] == all_alerts[i]['affected_services']['services'][g]['route_id']) {
-                                                affectedStations.push(preStationLocations[a][4]);
-                                                console.log("adding hopefully mattapan stop: ")
-                                                console.log(preStationLocations[a])
-                                            }
-                                        }
-                                    } else {
-
-                                        // Add affected parent stations to affectedStops
-                                        for (f = 0; f < allStops.length; f++) {
-                                            if (all_alerts[i]['affected_services']['services'][g]['stop_id'] != null) {
-                                                if (allStops[f][0] == all_alerts[i]['affected_services']['services'][g]['stop_id']) {
+                                        try {
+                                            // Add affected parent stations to affectedStops
+                                            for (f = 0; f < allStops.length; f++) {
+                                                if (allStops[f][0] == singleInformedEntity['stop']) {
                                                     if (allStops[f][9] == '') {
                                                         // We found our parent station, so add to affectedStations
                                                         var foundAffected = false;
@@ -392,15 +402,48 @@ function refreshDiagram (refreshMode) {
                                                     break;
                                                 }
                                             }
+
+                                            if (affectedStations.length == 0) {
+                                                for (a = 0; a < preStationLocations.length; a++) {
+                                                    console.log('a:')
+                                                    console.log(a)
+                                                    if (preStationLocations[a][0] == singleInformedEntity['route']) {
+                                                        affectedStations.push(preStationLocations[a][4]);
+                                                        console.log("adding hopefully mattapan stop: ")
+                                                        console.log(preStationLocations[a])
+                                                    }
+                                                }
+                                                console.log('1 - NO STOPS SPECIFIED, ASSUME ENTIRE ROUTE AFFECTED:');
+                                                console.log(all_alerts[i]);
+                                                console.log(singleInformedEntity);
+                                            }
+                                        } catch (err) {
+                                            console.log('1 - NO STOPS SPECIFIED, ASSUME ENTIRE ROUTE AFFECTED:');
+                                            console.log(all_alerts[i]);
+                                            console.log(singleInformedEntity);
+
+                                            for (a = 0; a < preStationLocations.length; a++) {
+                                                console.log('a:')
+                                                console.log(a)
+                                                if (preStationLocations[a][0] == singleInformedEntity['route']) {
+                                                    affectedStations.push(preStationLocations[a][4]);
+                                                    console.log("adding hopefully mattapan stop: ")
+                                                    console.log(preStationLocations[a])
+                                                }
+                                            }
                                         }
                                     }
+                                } catch (err) {
+                                    console.log('ALERT WITHOUT INFORMED SERVICE IGNORED:');
+                                    console.log(all_alerts[i]);
+                                    console.log(singleInformedEntity);
                                 }
                             }
                             var alertHeader = ''
                             var severity = ''
                             try {
-                                alertHeader = all_alerts[i]['header_text']
-                                var preSeverity = all_alerts[i]['severity']
+                                alertHeader = all_alerts[i]['attributes']['header']
+                                var preSeverity = all_alerts[i]['attributes']['severity']
                                 if (preSeverity == 'Severe' || preSeverity == '7' || preSeverity == '8' || preSeverity == '9') {
                                     severity = 'Severe'
                                 } else if (preSeverity == 'Moderate' || preSeverity == '5' || preSeverity == '6') {
@@ -414,7 +457,7 @@ function refreshDiagram (refreshMode) {
                             }
                             if (affectedStations.length > 0) {
                                 console.log(affectedStations);
-                                if (all_alerts[i]['effect'] == 'DETOUR') {
+                                if (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE') {
                                     // Search for lineSegments
                                     console.log(' - - - - - - - - - - - - -');
                                     var possibleMatches = [];
@@ -446,7 +489,7 @@ function refreshDiagram (refreshMode) {
                                             }
                                         }
                                     }
-                                } else if (all_alerts[i]['effect'] == 'NO_SERVICE') {
+                                } else if (all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE') {
                                     // Seach for stationLocations
                                     console.log(' = = = = = = = = = = = = =');
                                     for (a = 0; a < stationLocations.length; a++) {
@@ -460,7 +503,7 @@ function refreshDiagram (refreshMode) {
                                             }
                                         }
                                     }
-                                } else if (all_alerts[i]['effect'] == 'DELAY') {
+                                } else if (all_alerts[i]['attributes']['effect'] == 'DELAY') {
                                     // Seach for stationLocations
                                     console.log(' / / / / / / / / / / / / /');
                                     var possibleMatches = [];
