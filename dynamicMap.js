@@ -361,6 +361,7 @@ function refreshDiagram (refreshMode) {
                             // Relevant alert in terms of valid period and effect type; now determine impacted locations
 
                             affectedStations = [];
+                            affectedRoutes = [];
                             for (g = 0; g < all_alerts[i]['attributes']['informed_entity'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
                                 var singleInformedEntity = all_alerts[i]['attributes']['informed_entity'][g];
@@ -370,6 +371,7 @@ function refreshDiagram (refreshMode) {
                                         console.log('FOUND RAPID TRANSIT ALERT:');
                                         console.log(all_alerts[i]);
                                         console.log(singleInformedEntity);
+                                        affectedRoutes.push(singleInformedEntity['route']);
 
                                         try {
                                             // Add affected parent stations to affectedStops
@@ -511,16 +513,16 @@ function refreshDiagram (refreshMode) {
                                         for (b = 0; b < affectedStations.length; b++) {
                                             if (affectedStations[a] != affectedStations[b]) {
                                                 for (c = 0; c < lineSegments.length; c++) {
-                                                    if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) {
+                                                    if ((lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[b]) || (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a])) {
                                                         // This means we found an impacted line segment which needs modification
-                                                        lineSegments[c][13] = 'delayed';
-                                                        lineSegments[c][14] = severity;
-                                                        lineSegments[c][15] = alertHeader;
-                                                    } else if (lineSegments[c][4] == affectedStations[a] && lineSegments[c][7] == affectedStations[a]) {
-                                                        // This means we found an impacted line segment which needs modification
-                                                        lineSegments[c][13] = 'delayed';
-                                                        lineSegments[c][14] = severity;
-                                                        lineSegments[c][15] = alertHeader;
+                                                        for (d = 0; d < affectedRoutes.length; d++) {
+                                                            // First check that the line segment is on an affected route
+                                                            if (lineSegments[c][0] == affectedRoutes[d]) {
+                                                                lineSegments[c][13] = 'delayed';
+                                                                lineSegments[c][14] = severity;
+                                                                lineSegments[c][15] = alertHeader;
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
