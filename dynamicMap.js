@@ -88,6 +88,7 @@ for (i = 0; i < preStationLocations.length; i++) {
         preStationLocations[i][7],
         'open',
         '',
+        '',
         ''
     ]
     nodeLocations.push(newNode);
@@ -362,6 +363,7 @@ function refreshDiagram (refreshMode) {
 
                             affectedStations = [];
                             affectedRoutes = [];
+                            wholeRouteAlert = false;
                             for (g = 0; g < all_alerts[i]['attributes']['informed_entity'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
                                 var singleInformedEntity = all_alerts[i]['attributes']['informed_entity'][g];
@@ -406,6 +408,7 @@ function refreshDiagram (refreshMode) {
                                             }
 
                                             if (affectedStations.length == 0) {
+                                                wholeRouteAlert = true;
                                                 for (a = 0; a < preStationLocations.length; a++) {
                                                     console.log('a:')
                                                     console.log(a)
@@ -424,6 +427,7 @@ function refreshDiagram (refreshMode) {
                                             console.log(all_alerts[i]);
                                             console.log(singleInformedEntity);
 
+                                            wholeRouteAlert = true;
                                             for (a = 0; a < preStationLocations.length; a++) {
                                                 console.log('a:')
                                                 console.log(a)
@@ -488,6 +492,9 @@ function refreshDiagram (refreshMode) {
                                                 stationLocations[d][8] = 'shuttled';
                                                 stationLocations[a][9] = severity;
                                                 stationLocations[a][10] = alertHeader;
+                                                if (wholeRouteAlert == true) {
+                                                    stationLocations[a][11] = 'allRoute';
+                                                }
                                             }
                                         }
                                     }
@@ -502,6 +509,9 @@ function refreshDiagram (refreshMode) {
                                                 stationLocations[a][8] = 'closed';
                                                 stationLocations[a][9] = severity;
                                                 stationLocations[a][10] = alertHeader;
+                                                if (wholeRouteAlert == true) {
+                                                    stationLocations[a][11] = 'allRoute';
+                                                }
                                             }
                                         }
                                     }
@@ -534,6 +544,9 @@ function refreshDiagram (refreshMode) {
                                                 stationLocations[d][8] = 'delayed';
                                                 stationLocations[a][9] = severity;
                                                 stationLocations[a][10] = alertHeader;
+                                                if (wholeRouteAlert == true) {
+                                                    stationLocations[a][11] = 'allRoute';
+                                                }
                                             }
                                         }
                                     }
@@ -660,7 +673,7 @@ function refreshDiagram (refreshMode) {
                     .attr('x', function(d) { return parseInt(xScale(d[5])) + 25 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { 
-                        if (d[8] == 'closed' || d[8] == 'shuttled' || d[8] == 'delayed') {
+                        if ((d[8] == 'closed' || d[8] == 'shuttled' || d[8] == 'delayed') && d[11] != 'allRoute') {
                             return d[3]
                         } else {
                             return ''
