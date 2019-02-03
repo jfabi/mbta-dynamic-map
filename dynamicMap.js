@@ -358,7 +358,7 @@ function refreshDiagram (refreshMode) {
                             }
                         }
 
-                        if (alertRelevant == true && (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'DELAY')) {
+                        if (alertRelevant == true && (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'SUSPENSION' || all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'DELAY')) {
                             // Relevant alert in terms of valid period and effect type; now determine impacted locations
 
                             affectedStations = [];
@@ -463,7 +463,7 @@ function refreshDiagram (refreshMode) {
                             }
                             if (affectedStations.length > 0) {
                                 console.log(affectedStations);
-                                if (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE') {
+                                if (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'SUSPENSION') {
                                     // Search for lineSegments
                                     console.log(' - - - - - - - - - - - - -');
                                     var possibleMatches = [];
