@@ -450,11 +450,11 @@ function refreshDiagram (refreshMode) {
                             try {
                                 alertHeader = all_alerts[i]['attributes']['header']
                                 var preSeverity = all_alerts[i]['attributes']['severity']
-                                if (preSeverity == 'Severe' || preSeverity == '7' || preSeverity == '8' || preSeverity == '9') {
+                                if (preSeverity == 'Severe' || preSeverity == '7' || preSeverity == '8' || preSeverity == '9' || preSeverity == '10') {
                                     severity = 'Severe'
                                 } else if (preSeverity == 'Moderate' || preSeverity == '5' || preSeverity == '6') {
                                     severity = 'Moderate'
-                                } else if (preSeverity == 'Minor' || preSeverity == '3' || preSeverity == '4') {
+                                } else if (preSeverity == 'Minor' || preSeverity == '1' || preSeverity == '2' || preSeverity == '3' || preSeverity == '4') {
                                     severity = 'Minor'
                                 }
                             } catch (err) {
