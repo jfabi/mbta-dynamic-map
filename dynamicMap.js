@@ -137,6 +137,9 @@ for (i = 0; i < nodeLocations.length; i++) {
 // 8  to_x
 // 9  to_y
 // 12 original color for segment_color
+// 13 status
+// 14 associated alert severity
+// 15 associated alert text
 
 window.onload = function () {
       refreshDiagram("current_status");
@@ -150,9 +153,15 @@ function refreshDiagram (refreshMode) {
     // Reset lineSegments colors and stationLocations open status
     for (i = 0; i < lineSegments.length; i++) {
         lineSegments[i][3] = lineSegments[i][12];
+        lineSegments[i][13] = 'open';
+        lineSegments[i][14] = '';
+        lineSegments[i][15] = '';
     }
     for (i = 0; i < stationLocations.length; i++) {
         stationLocations[i][8] = 'open';
+        stationLocations[i][9] = '';
+        stationLocations[i][10] = '';
+        stationLocations[i][11] = '';
     }
 
     setTimeout(function() {
@@ -233,6 +242,9 @@ function refreshDiagram (refreshMode) {
             timeFrom = (new Date).getTime() / 1000;
             console.log(timeFrom);
         }
+        console.log(" -------------- We are now going to print locating time ------------ ");
+        console.log(dateFrom);
+
         console.log(timeFrom);
 
         // define route, which here is eastbound C-branch on MBTA Green Line
