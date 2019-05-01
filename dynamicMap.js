@@ -370,7 +370,7 @@ function refreshDiagram (refreshMode) {
                             }
                         }
 
-                        if (alertRelevant == true && (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'SUSPENSION' || all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'DELAY')) {
+                        if (alertRelevant == true && (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'SUSPENSION' || all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'DELAY' || all_alerts[i]['attributes']['effect'] == 'ESCALATOR_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'ELEVATOR_CLOSURE')) {
                             // Relevant alert in terms of valid period and effect type; now determine impacted locations
 
                             affectedStations = [];
@@ -379,8 +379,9 @@ function refreshDiagram (refreshMode) {
                             for (g = 0; g < all_alerts[i]['attributes']['informed_entity'].length; g++) {
                                 // Filter out non-Red/Orange Line services for purpose of this demo
                                 var singleInformedEntity = all_alerts[i]['attributes']['informed_entity'][g];
+                                var singleAlertEffect = all_alerts[i]['attributes']['effect'];
                                 try {
-                                    if (singleInformedEntity['route'] == 'Red' || singleInformedEntity['route'] == 'Orange' || singleInformedEntity['route'] == 'Mattapan' || singleInformedEntity['route'] == 'Blue' || singleInformedEntity['route'] == 'Green-B' || singleInformedEntity['route'] == 'Green-C' || singleInformedEntity['route'] == 'Green-D' || singleInformedEntity['route'] == 'Green-E') {
+                                    if (singleInformedEntity['route'] == 'Red' || singleInformedEntity['route'] == 'Orange' || singleInformedEntity['route'] == 'Mattapan' || singleInformedEntity['route'] == 'Blue' || singleInformedEntity['route'] == 'Green-B' || singleInformedEntity['route'] == 'Green-C' || singleInformedEntity['route'] == 'Green-D' || singleInformedEntity['route'] == 'Green-E' || singleAlertEffect == 'ESCALATOR_CLOSURE' || singleAlertEffect == 'ELEVATOR_CLOSURE') {
 
                                         console.log('FOUND RAPID TRANSIT ALERT:');
                                         console.log(all_alerts[i]);
@@ -422,8 +423,6 @@ function refreshDiagram (refreshMode) {
                                             if (affectedStations.length == 0) {
                                                 wholeRouteAlert = true;
                                                 for (a = 0; a < preStationLocations.length; a++) {
-                                                    console.log('a:')
-                                                    console.log(a)
                                                     if (preStationLocations[a][0] == singleInformedEntity['route']) {
                                                         affectedStations.push(preStationLocations[a][4]);
                                                         console.log("adding hopefully mattapan stop: ")
@@ -441,8 +440,6 @@ function refreshDiagram (refreshMode) {
 
                                             wholeRouteAlert = true;
                                             for (a = 0; a < preStationLocations.length; a++) {
-                                                console.log('a:')
-                                                console.log(a)
                                                 if (preStationLocations[a][0] == singleInformedEntity['route']) {
                                                     affectedStations.push(preStationLocations[a][4]);
                                                     console.log("adding hopefully mattapan stop: ")
@@ -524,6 +521,22 @@ function refreshDiagram (refreshMode) {
                                                 if (wholeRouteAlert == true) {
                                                     stationLocations[a][11] = 'allRoute';
                                                 }
+                                            }
+                                        }
+                                    }
+                                } else if (all_alerts[i]['attributes']['effect'] == 'ESCALATOR_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'ELEVATOR_CLOSURE') {
+                                    // Seach for stationLocations
+                                    console.log(' & & & & & & & & & & & & &');
+                                    for (a = 0; a < stationLocations.length; a++) {
+                                        for (k = 0; k < affectedStations.length; k++) {
+                                            if (affectedStations[k] == stationLocations[a][4]) {
+                                                console.log('VERTICAL CIRCULATION ISSUE:');
+                                                console.log(stationLocations[a]);
+                                                stationLocations[a][8] = 'issue';
+                                                stationLocations[a][9] = severity;
+                                                stationLocations[a][10] = alertHeader;
+                                                stationLocations[a][11] = '';
+                                                console.log(stationLocations[a]);
                                             }
                                         }
                                     }
@@ -644,7 +657,7 @@ function refreshDiagram (refreshMode) {
                     .attr('y2', function(d) { return yScale(d[9]) })
                     .attr('fill', function(d){ return '#ffffff' })
                     .style('opacity', function(d) {
-                        if (d[8] == 'closed') {
+                        if (d[8] == 'closed' || d[8] == 'issue') {
                             return 0.6
                         } else {
                             return 1
@@ -653,6 +666,8 @@ function refreshDiagram (refreshMode) {
                     .attr('class', function(d) {
                         if (d[8] == 'closed') {
                             return 'shuttled'
+                        } else if (d[8] == 'issue') {
+                            return 'issue'
                         } else {
                             return 'solid'
                         }
@@ -685,7 +700,7 @@ function refreshDiagram (refreshMode) {
                     .attr('x', function(d) { return parseInt(xScale(d[5])) + 25 })
                     .attr('y', function(d) { return parseInt(yScale(d[6])) + 6})
                     .text(function(d) { 
-                        if ((d[8] == 'closed' || d[8] == 'shuttled' || d[8] == 'delayed') && d[11] != 'allRoute') {
+                        if ((d[8] == 'closed' || d[8] == 'shuttled' || d[8] == 'delayed' || d[8] == 'issue') && d[11] != 'allRoute') {
                             return d[3]
                         } else {
                             return ''
@@ -701,7 +716,7 @@ function refreshDiagram (refreshMode) {
                         }
                     })
                     .attr('fill', function(d) {
-                        if (d[8] == 'closed') {
+                        if (d[8] == 'closed' || d[8] == 'issue') {
                             return 'gray'
                         } else {
                             return '#000000'
