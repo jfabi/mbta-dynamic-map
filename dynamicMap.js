@@ -499,10 +499,10 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY SHUTTLED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'shuttled';
-                                                stationLocations[a][9] = severity;
-                                                stationLocations[a][10] = alertHeader;
+                                                stationLocations[d][9] = severity;
+                                                stationLocations[d][10] = alertHeader;
                                                 if (wholeRouteAlert == true) {
-                                                    stationLocations[a][11] = 'allRoute';
+                                                    stationLocations[d][11] = 'allRoute';
                                                 }
                                             }
                                         }
@@ -567,10 +567,10 @@ function refreshDiagram (refreshMode) {
                                                 console.log('NEWLY DELAYED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'delayed';
-                                                stationLocations[a][9] = severity;
-                                                stationLocations[a][10] = alertHeader;
+                                                stationLocations[d][9] = severity;
+                                                stationLocations[d][10] = alertHeader;
                                                 if (wholeRouteAlert == true) {
-                                                    stationLocations[a][11] = 'allRoute';
+                                                    stationLocations[d][11] = 'allRoute';
                                                 }
                                             }
                                         }
