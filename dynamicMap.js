@@ -49,12 +49,12 @@ $.ajax({
 
 var parentStationComplexes = [];
 for (i = 0; i < allStops.length; i++) {
-    if (allStops[i][9] != '' && allStops[i][9] != 'parent_station') {
+    if (allStops[i][13] != '' && allStops[i][13] != 'parent_station') {
         try {
-            parentStationComplexes[allStops[i][9]].push(allStops[i][0])
+            parentStationComplexes[allStops[i][13]].push(allStops[i][0])
         } catch (err) {
-            parentStationComplexes[allStops[i][9]] = []
-            parentStationComplexes[allStops[i][9]].push(allStops[i][0])
+            parentStationComplexes[allStops[i][13]] = []
+            parentStationComplexes[allStops[i][13]].push(allStops[i][0])
         }
         // 0  stop_id
         // 9  parent_station
@@ -392,7 +392,7 @@ function refreshDiagram (refreshMode) {
                                             // Add affected parent stations to affectedStops
                                             for (f = 0; f < allStops.length; f++) {
                                                 if (allStops[f][0] == singleInformedEntity['stop']) {
-                                                    if (allStops[f][9] == '') {
+                                                    if (allStops[f][13] == '') {
                                                         // We found our parent station, so add to affectedStations
                                                         var foundAffected = false;
                                                         for (a = 0; a < affectedStations.length; a++) {
@@ -407,13 +407,13 @@ function refreshDiagram (refreshMode) {
                                                     } else {
                                                         var foundAffected = false;
                                                         for (a = 0; a < affectedStations.length; a++) {
-                                                            if (affectedStations[a] == allStops[f][9]) {
+                                                            if (affectedStations[a] == allStops[f][13]) {
                                                                 foundAffected = true;
                                                                 break;
                                                             }
                                                         }
                                                         if (foundAffected == false) {
-                                                            affectedStations.push(allStops[f][9]);
+                                                            affectedStations.push(allStops[f][13]);
                                                         }
                                                     }
                                                     break;
