@@ -31,7 +31,9 @@ Last updated 23 August 2016
 
 <body>
 
-    <br>Date <input name="Month" type="text" maxlength="2" size="2" id="mo" class="searchField" placeholder="MM" autofocus/>
+    <b>View current service:</b> <button onclick="refreshDiagram('current_status')">Live alerts</button>
+
+    <br><b>View future service:</b> Date <input name="Month" type="text" maxlength="2" size="2" id="mo" class="searchField" placeholder="MM" autofocus/>
     <input name="Day" type="text" maxlength="2" size="2" id="dy" class="searchField" placeholder="DD"/>
     <input name="Year" type="text" maxlength="4" size="4" id="yr" class="searchField" placeholder="YYYY"/>
     Time of day <select id="timeDay">
@@ -39,7 +41,7 @@ Last updated 23 August 2016
         <option value="night">Night</option>
     </select>
 
-    <button onclick="refreshDiagram('set_time')">View line diagrams for set dates</button>        
+    <button onclick="refreshDiagram('set_time')">View alerts for set dates</button>        
     
     <div id="dwellsT">
         Please enter all fields above to view the rapid transit service diagram for a particular day.<br>
