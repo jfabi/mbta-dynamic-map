@@ -72,6 +72,19 @@ $.ajax({
     }
 });
 
+var preStationLocations_new;
+$.ajax({
+    url: 'station_locations_new.csv',
+    async: false,
+    success: function (csvd) {
+        preStationLocations_new = $.csv.toArrays(csvd);
+    },
+    dataType: 'text',
+    complete: function () {
+        // call a function on complete 
+    }
+});
+
 var stationLocations = [];
 var nodeLocations = [];
 for (i = 0; i < preStationLocations.length; i++) {
@@ -100,26 +113,39 @@ for (i = 0; i < preStationLocations.length; i++) {
 }
 
 var lineSegments = [];
-for (i = 0; i < nodeLocations.length; i++) {
-    if (nodeLocations[i][2] != '0' && nodeLocations[i][2] != 0) {
+for (i = 0; i < preStationLocations_new.length; i++) {
+    if (preStationLocations_new[i][2] != '0' && preStationLocations_new[i][2] != 0) {
+        var listOfPoints = [];
+        listOfPoints.push({x: preStationLocations_new[i][13], y: preStationLocations_new[i][14]});
+        if (preStationLocations_new[i][15] != null && preStationLocations_new[i][15] != '') {
+            listOfPoints.push({x: preStationLocations_new[i][15], y: preStationLocations_new[i][16]});
+            if (preStationLocations_new[i][17] != null && preStationLocations_new[i][17] != '') {
+                listOfPoints.push({x: preStationLocations_new[i][17], y: preStationLocations_new[i][18]});
+                if (preStationLocations_new[i][19] != null && preStationLocations_new[i][19] != '') {
+                    listOfPoints.push({x: preStationLocations_new[i][19], y: preStationLocations_new[i][20]});
+                }
+            }
+        }
+        listOfPoints.push({x: preStationLocations_new[i][5], y: preStationLocations_new[i][6]});
+
         newSegment = [
-            nodeLocations[i][0],
-            nodeLocations[i][1],
-            nodeLocations[i-1][2],
-            nodeLocations[i-1][7],
-            nodeLocations[i-1][4],
-            nodeLocations[i-1][5],
-            nodeLocations[i-1][6],
-            nodeLocations[i][4],
-            nodeLocations[i][5],
-            nodeLocations[i][6],
-            nodeLocations[i-1][3],
-            nodeLocations[i][3],
-            nodeLocations[i-1][7],
+            preStationLocations_new[i][10],     // NEED TO BREAK UP IN ARRAY/LIST
+            preStationLocations_new[i][1],
+            preStationLocations_new[i][2],
+            preStationLocations_new[i][7],
+            preStationLocations_new[i][12],
+            preStationLocations_new[i][13],
+            preStationLocations_new[i][14],
+            preStationLocations_new[i][4],
+            preStationLocations_new[i][5],
+            preStationLocations_new[i][6],
+            preStationLocations_new[i][11],
+            preStationLocations_new[i][3],
+            preStationLocations_new[i][7],
             'open',
             '',
             '',
-            [{x: nodeLocations[i-1][5], y: nodeLocations[i-1][6]}, {x: nodeLocations[i][5], y: nodeLocations[i][6]}]
+            listOfPoints
         ]
         lineSegments.push(newSegment);
     }
@@ -551,7 +577,7 @@ function refreshDiagram (refreshMode) {
             var lineFunction = d3.svg.line()
                 .x(function(d) { return d.x; })
                 .y(function(d) { return d.y; })
-                .interpolate('linear');
+                .interpolate('basis');
 
             vis.selectAll('line.segments')
                 .data(lineSegments) // used to contain ( points )
