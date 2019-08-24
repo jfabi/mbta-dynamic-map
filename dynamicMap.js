@@ -504,7 +504,7 @@ function refreshDiagram (refreshMode) {
                                                         // This means we found an impacted line segment which needs modification
                                                         for (d = 0; d < affectedRoutes.length; d++) {
                                                             // First check that the line segment is on an affected route
-                                                            if (lineSegments[c][0] == affectedRoutes[d]) {
+                                                            if (lineSegments[c][0] == affectedRoutes[d] && lineSegments[c][13] != 'shuttled') {
                                                                 lineSegments[c][13] = 'delayed';
                                                                 lineSegments[c][14] = severity;
                                                                 lineSegments[c][15] = alertHeader;
