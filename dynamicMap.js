@@ -118,7 +118,8 @@ for (i = 0; i < nodeLocations.length; i++) {
             nodeLocations[i-1][7],
             'open',
             '',
-            ''
+            '',
+            [{x: nodeLocations[i-1][5], y: nodeLocations[i-1][6]}, {x: nodeLocations[i][5], y: nodeLocations[i][6]}]
         ]
         lineSegments.push(newSegment);
     }
@@ -138,6 +139,7 @@ for (i = 0; i < nodeLocations.length; i++) {
 // 13 status
 // 14 associated alert severity
 // 15 associated alert text
+// 16 [{x: from_x, y: from_y}, {x: to_x, y: to_y}]
 
 window.onload = function () {
       refreshDiagram("current_status");
@@ -546,14 +548,16 @@ function refreshDiagram (refreshMode) {
 
             } // NEW TEMP END OF FOR LOOP
 
+            var lineFunction = d3.svg.line()
+                .x(function(d) { return d.x; })
+                .y(function(d) { return d.y; })
+                .interpolate('linear');
+
             vis.selectAll('line.segments')
                 .data(lineSegments) // used to contain ( points )
                 .enter()
-                .append('line')
-                    .attr('x1', function(d) { return xScale(d[5]) })
-                    .attr('y1', function(d) { return yScale(d[6]) })
-                    .attr('x2', function(d) { return xScale(d[8]) })
-                    .attr('y2', function(d) { return yScale(d[9]) })
+                .append('path')
+                    .attr('d', function(d) { return lineFunction(d[16]); })
                     .attr('stroke', function(d){
                         if (d[13] == 'shuttled') {
                             return '#000000'
