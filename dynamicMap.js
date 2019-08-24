@@ -543,7 +543,7 @@ function refreshDiagram (refreshMode) {
                                             }
                                         }
                                         for (d = 0; d < stationLocations.length; d++) {
-                                            if (affectedStations[a] == stationLocations[d][4]) {
+                                            if (affectedStations[a] == stationLocations[d][4] && stationLocations[d][8] == '') {
                                                 console.log('NEWLY DELAYED:');
                                                 console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'delayed';
