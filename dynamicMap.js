@@ -6,8 +6,6 @@ jfabian@mbta.com
 Last updated 24 December 2017
 */
 
-apiKey = config.V2_API_KEY
-
 function parseTimestamp(timestamp) {
     // example of format: '2017-06-12T11:05:03-04:00'
     // console.log(timestamp)
@@ -261,52 +259,6 @@ function refreshDiagram (refreshMode) {
         }
         if (timeInput == 'night') {
             timeDayText = 'Nighttime service';
-        }
-
-        if (routeInputText == 'C-EB') {
-
-            direction = 'Eastbound';
-            branchText = 'Green Line Beacon St - ' + direction;
-            branchTextToCheck = 'Green-C'; // IMPORTANT: this variable should == '' when doing subway
-
-            // format: [thisStopIndex,thisStopID,thisStopName]
-            tableOfStops = [
-                [0,70238,'Cleveland Circle'],
-                [1,70236,'Englewood Av'],
-                [2,70234,'Dean Rd'],
-                [3,70232,'Tappan St'],
-                [4,70230,'Washington Sq'],
-                [5,70228,'Fairbanks St'],
-                [6,70226,'Brandon Hall'],
-                [7,70224,'Summit Av'],
-                [8,70220,'Coolidge Corner'],
-                [9,70218,'St Paul St'],
-                [10,70216,'Kent St'],
-                [11,70214,'Hawes St'],
-                [12,70212,'St Mary St'],
-                [13,70150,'Kenmore'],
-                [14,70152,'Hynes'],
-                [15,70154,'Copley'],
-                [16,70156,'Arlington'],
-                [17,70158,'Boylston'],
-                [18,70200,'Park St'],
-                [19,70201,'Government Ctr'],
-                [20,70203,'Haymarket'],
-                [21,70205,'North Station'],
-                [22,70207,'Science Park'],
-                [23,70209,'Lechmere']
-            ];
-        }
-
-        var maxIndex = 1900;
-        var stationNames = []
-        var lastStation = ''
-        for (i = 0; i < tableOfStops.length; i++) {
-            if (tableOfStops[i][2] != lastStation) {
-                // check to make sure we do not save duplicate station names
-                stationNames.push(tableOfStops[i][2]);
-                lastStation = tableOfStops[i][2]
-            }
         }
 
         // set up d3 box to later plot points
