@@ -6,6 +6,8 @@ jfabian@mbta.com
 Last updated 24 December 2017
 */
 
+var refreshCommand = null;
+
 function parseTimestamp(timestamp) {
     // example of format: '2017-06-12T11:05:03-04:00'
     // console.log(timestamp)
@@ -168,10 +170,11 @@ for (i = 0; i < preStationLocations_new.length; i++) {
 // 16 [{x: from_x, y: from_y}, {x: to_x, y: to_y}]
 
 window.onload = function () {
-      refreshDiagram("current_status");
+    refreshCommand = setInterval(refreshDiagram, 60000, 'current_status');
+    refreshDiagram("current_status");
 }
         
-function refreshDiagram (refreshMode) {
+var refreshDiagram = function refreshDiagram (refreshMode) {
 
     console.log("ready to go");
     document.getElementById("dwellsT").innerHTML = 'Please wait. Your diagram is currently baking...<br>&nbsp;';
@@ -204,15 +207,18 @@ function refreshDiagram (refreshMode) {
         var timeInput = document.getElementById("timeDay");
         var startTime = '';
         var endTime = '';
+        var timeDayText = '';
         if (timeInput.value == 'midday') {
             console.log('This is midday');
             startTime = '10:00:00';
             endTime = '10:00:00';
+            timeDayText = 'Daytime service';
         }
         if (timeInput.value == 'night') {
             console.log('This is nighttime');
             startTime = '22:00:00';
             endTime = '22:00:00';
+            timeDayText = 'Nighttime service';
         }
 
         console.log(day.value);
@@ -281,7 +287,6 @@ function refreshDiagram (refreshMode) {
 
         var direction, branchText, tableOfStops, branchTextToCheck;
 
-        var timeDayText = '';
         if (timeInput == 'midday') {
             timeDayText = 'Daytime service';
         }
@@ -741,10 +746,29 @@ function refreshDiagram (refreshMode) {
             var dayIndex = timeFromAsDate.getDay();
 
             if (refreshMode == 'current_status') {
-                document.getElementById("dwellsT").innerHTML = 'Live MBTA rapid transit service diagram';
+                var dateNow = new Date();
+                var timeFromHour = dateNow.getHours();
+                var timeFromMinute = dateNow.getMinutes();
+                if (timeFromHour < 10) {
+                    timeFromHour = '0' + timeFromHour
+                }
+                if (timeFromMinute < 10) {
+                    timeFromMinute = '0' + timeFromMinute
+                }
+                document.getElementById("dwellsT").innerHTML = '<b>Live MBTA rapid transit service diagram</b><br>Last updated at ' + timeFromHour + ':' + timeFromMinute;
+                if (refreshCommand == null) {
+                    refreshCommand = setInterval(refreshDiagram, 60000, 'current_status');
+                }
             } else {
-                document.getElementById("dwellsT").innerHTML = 'Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '<br><b>' + timeDayText + '</b>';
+                console.log('timeDayText.....')
+                console.log(timeDayText)
+                console.log(timeInput)
+                document.getElementById("dwellsT").innerHTML = '<b>Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '</b><br>' + timeDayText;
+                if (refreshCommand != null) {
+                    clearInterval(refreshCommand);
+                    refreshCommand = null;
+                }
             }
         }, 1000);
-    }, 100);
+    }, 1000);
 };
