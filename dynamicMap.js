@@ -300,23 +300,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
         var WIDTH = 1900;
         var HEIGHT = 1900;
 
-        d3.selectAll("svg > *").remove();
-
-        var div = d3.select("body").append("div")	
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-        //var vis = d3.select("#visualisation");
-
-        var vis = d3.select("#visualisation").append("svg")
-            .attr("width", WIDTH + MARGINS.left + MARGINS.right)
-            .attr("height", HEIGHT + MARGINS.top + MARGINS.bottom)
-            .append("g")
-                .attr("transform", "translate(" + MARGINS.left + "," + MARGINS.top + ")");
-
-        var xScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
-        var yScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
-
         // take a look at alerts and edit segments and stations as necessary
 
         jQuery(document).ready(function($) {
@@ -572,12 +555,23 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
 
         setTimeout(function(){
             console.log("Total of " + lineSegments.length + " segement!");
-            for (i = 0; i < lineSegments.length - 1; i++) {
-                var segment = lineSegments[i];
 
-                // add the contents of this segment to the d3 chart
+            // set up d3 box to plot points
 
-            } // NEW TEMP END OF FOR LOOP
+            d3.selectAll("svg > *").remove();
+
+            var div = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            var vis = d3.select("#visualisation").append("svg")
+                .attr("width", WIDTH + MARGINS.left + MARGINS.right)
+                .attr("height", HEIGHT + MARGINS.top + MARGINS.bottom)
+                .append("g")
+                    .attr("transform", "translate(" + MARGINS.left + "," + MARGINS.top + ")");
+
+            var xScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
+            var yScale = d3.scale.linear().range([0,1900]).domain([0,1900]);
 
             var lineFunction = d3.svg.line()
                 .x(function(d) { return d.x; })
