@@ -1,9 +1,6 @@
 /*
 Written by Joshua Fabian
-August 2016, MIT Transit Lab
-jfabi@mit.edu, joshuajfabian@gmail.com
-
-Last updated 23 August 2016
+jfabi@alum.mit.edu, joshuajfabian@gmail.com
 */
 
 body {
@@ -63,39 +60,12 @@ h2 {
    animation: detourBlink 1s linear infinite;
 }
 
-#itemList {
-    font-family: Roboto, calibri, sans-serif;
-    font-size: 24px;
-}
-
-
-#itemList2 {
-    font-family: Roboto, calibri, sans-serif;
-    font-size: 24px;
-}
-
-#alertsT {
+#statusText {
     margin-top: 28px;
     margin-bottom: -14px;
-    
-    font-family: Roboto, calibri, sans-serif;
-    font-size: 24px;
-}
-
-#dwellsT {
-    margin-top: 28px;
-    margin-bottom: -14px;
-    
     font-family: Roboto, calibri, sans-serif;
     font-size: 20px;
 }
-
-#alerts {
-    font-family: Roboto, calibri, sans-serif;
-    font-weight: 700px;
-    margin-top: 22px;
-}
-
 
 td {
     padding-left: 10px;

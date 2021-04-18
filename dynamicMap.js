@@ -1,26 +1,18 @@
 /*
 Written by Joshua Fabian
-December 2017
-jfabian@mbta.com
-
-Last updated 24 December 2017
+jfabi@alum.mit.edu, joshuajfabian@gmail.com
 */
 
 var refreshCommand = null;
 
 function parseTimestamp(timestamp) {
     // example of format: '2017-06-12T11:05:03-04:00'
-    // console.log(timestamp)
     var year = parseInt(timestamp.substring(0,4));
     var month = parseInt(timestamp.substring(5,7)) - 1;
     var day = parseInt(timestamp.substring(8,10));
     var hour = parseInt(timestamp.substring(11,13));
     var minute = parseInt(timestamp.substring(14,16));
     var second = parseInt(timestamp.substring(17,19));
-    if (hour == 6 && day == 24) {
-        console.log(timestamp)
-        console.log(month)
-    }
     var dateObject = new Date(year, month, day, hour, minute, second);
     return dateObject.getTime()/1000;
 }
@@ -106,11 +98,7 @@ for (i = 0; i < preStationLocations.length; i++) {
     ]
     nodeLocations.push(newNode);
     if (preStationLocations[i][8] != '1') {
-        console.log(preStationLocations[i][8])
         stationLocations.push(newNode);
-    } else {
-        console.log('!!!!')
-        console.log(preStationLocations[i])
     }
 }
 
@@ -177,7 +165,7 @@ window.onload = function () {
 var refreshDiagram = function refreshDiagram (refreshMode) {
 
     console.log("ready to go");
-    document.getElementById("dwellsT").innerHTML = 'Please wait. Your diagram is currently baking...<br>&nbsp;';
+    document.getElementById("statusText").innerHTML = 'Please wait. Your diagram is currently baking...<br>&nbsp;';
 
     // Reset lineSegments colors and stationLocations open status
     for (i = 0; i < lineSegments.length; i++) {
@@ -209,24 +197,15 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
         var endTime = '';
         var timeDayText = '';
         if (timeInput.value == 'midday') {
-            console.log('This is midday');
             startTime = '10:00:00';
             endTime = '10:00:00';
             timeDayText = 'Daytime service';
         }
         if (timeInput.value == 'night') {
-            console.log('This is nighttime');
             startTime = '22:00:00';
             endTime = '22:00:00';
             timeDayText = 'Nighttime service';
         }
-
-        console.log(day.value);
-        console.log(month.value);
-        console.log(year.value);
-        console.log(startTime);
-        console.log(endTime);
-        console.log(timeInput);
 
         var dateMidnight = new Date(year.value, month.value-1, day.value, 0, 0, 0, 0);
         var timeFromAsDate;
@@ -262,9 +241,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                 timeToAsDate = new Date(dateTo);
             }
         }
-
-        console.log(dateFrom);
-        console.log(dateTo);
 
         var midnight = dateMidnight.getTime() / 1000;
         var timeFrom = dateFrom.getTime() / 1000;
@@ -316,11 +292,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                     var weHaveSevere = false;
 
                     for(i = 0; i < all_alerts.length; i++) {
-
-                        // if (all_alerts[i]['cause'] == 'WEATHER') {
-                        //     console.log(all_alerts[i]);
-                        // }
-
                         var alertRelevant = false;
                         for(h = 0; h < all_alerts[i]['attributes']['active_period'].length; h++) {
                             if (all_alerts[i]['attributes']['active_period'][h]['end'] == null && timeFrom >= parseTimestamp(all_alerts[i]['attributes']['active_period'][h]['start'])) {
@@ -350,10 +321,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                 var singleAlertEffect = all_alerts[i]['attributes']['effect'];
                                 try {
                                     if (singleInformedEntity['route'] == 'Red' || singleInformedEntity['route'] == 'Orange' || singleInformedEntity['route'] == 'Mattapan' || singleInformedEntity['route'] == 'Blue' || singleInformedEntity['route'] == 'Green-B' || singleInformedEntity['route'] == 'Green-C' || singleInformedEntity['route'] == 'Green-D' || singleInformedEntity['route'] == 'Green-E' || singleAlertEffect == 'ESCALATOR_CLOSURE' || singleAlertEffect == 'ELEVATOR_CLOSURE') {
-
-                                        console.log('FOUND RAPID TRANSIT ALERT:');
-                                        console.log(all_alerts[i]);
-                                        console.log(singleInformedEntity);
                                         affectedRoutes.push(singleInformedEntity['route']);
 
                                         try {
@@ -439,10 +406,8 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                 severity = 'Informational'
                             }
                             if (affectedStations.length > 0) {
-                                console.log(affectedStations);
                                 if (all_alerts[i]['attributes']['effect'] == 'DETOUR' || all_alerts[i]['attributes']['effect'] == 'SHUTTLE' || all_alerts[i]['attributes']['effect'] == 'SUSPENSION') {
                                     // Search for lineSegments
-                                    console.log(' - - - - - - - - - - - - -');
                                     var possibleMatches = [];
                                     for (a = 0; a < affectedStations.length; a++) {
                                         for (b = 0; b < affectedStations.length; b++) {
@@ -474,8 +439,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                         }
                                         for (d = 0; d < stationLocations.length; d++) {
                                             if (affectedStations[a] == stationLocations[d][4]) {
-                                                console.log('NEWLY SHUTTLED:');
-                                                console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'shuttled';
                                                 stationLocations[d][9] = severity;
                                                 stationLocations[d][10] = alertHeader;
@@ -486,13 +449,10 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                         }
                                     }
                                 } else if (all_alerts[i]['attributes']['effect'] == 'NO_SERVICE' || all_alerts[i]['attributes']['effect'] == 'STATION_CLOSURE') {
-                                    // Seach for stationLocations
-                                    console.log(' = = = = = = = = = = = = =');
+                                    // Search for stationLocations
                                     for (a = 0; a < stationLocations.length; a++) {
                                         for (k = 0; k < affectedStations.length; k++) {
                                             if (affectedStations[k] == stationLocations[a][4]) {
-                                                console.log('NEWLY CLOSED:');
-                                                console.log(stationLocations[a]);
                                                 stationLocations[a][8] = 'closed';
                                                 stationLocations[a][9] = severity;
                                                 stationLocations[a][10] = alertHeader;
@@ -503,24 +463,19 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                         }
                                     }
                                 } else if (all_alerts[i]['attributes']['effect'] == 'ESCALATOR_CLOSURE' || all_alerts[i]['attributes']['effect'] == 'ELEVATOR_CLOSURE') {
-                                    // Seach for stationLocations
-                                    console.log(' & & & & & & & & & & & & &');
+                                    // Search for stationLocations
                                     for (a = 0; a < stationLocations.length; a++) {
                                         for (k = 0; k < affectedStations.length; k++) {
                                             if (affectedStations[k] == stationLocations[a][4]) {
-                                                console.log('VERTICAL CIRCULATION ISSUE:');
-                                                console.log(stationLocations[a]);
                                                 stationLocations[a][8] = 'issue';
                                                 stationLocations[a][9] = severity;
                                                 stationLocations[a][10] = alertHeader;
                                                 stationLocations[a][11] = '';
-                                                console.log(stationLocations[a]);
                                             }
                                         }
                                     }
                                 } else if (all_alerts[i]['attributes']['effect'] == 'DELAY') {
-                                    // Seach for stationLocations
-                                    console.log(' / / / / / / / / / / / / /');
+                                    // Search for stationLocations
                                     var possibleMatches = [];
                                     for (a = 0; a < affectedStations.length; a++) {
                                         for (b = 0; b < affectedStations.length; b++) {
@@ -542,8 +497,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                                         }
                                         for (d = 0; d < stationLocations.length; d++) {
                                             if (affectedStations[a] == stationLocations[d][4] && stationLocations[d][8] == '') {
-                                                console.log('NEWLY DELAYED:');
-                                                console.log(stationLocations[d]);
                                                 stationLocations[d][8] = 'delayed';
                                                 stationLocations[d][9] = severity;
                                                 stationLocations[d][10] = alertHeader;
@@ -564,8 +517,6 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
         // iterate over each stop
 
         setTimeout(function(){
-            console.log("Total of " + lineSegments.length + " segement!");
-
             // set up d3 box to plot points
 
             d3.selectAll("svg > *").remove();
@@ -759,15 +710,12 @@ var refreshDiagram = function refreshDiagram (refreshMode) {
                 if (timeFromMinute < 10) {
                     timeFromMinute = '0' + timeFromMinute
                 }
-                document.getElementById("dwellsT").innerHTML = '<b>Live MBTA rapid transit service diagram</b><br>Last updated at ' + timeFromHour + ':' + timeFromMinute;
+                document.getElementById("statusText").innerHTML = '<b>Live MBTA rapid transit service diagram</b><br>Last updated at ' + timeFromHour + ':' + timeFromMinute;
                 if (refreshCommand == null) {
                     refreshCommand = setInterval(refreshDiagram, 60000, 'current_status');
                 }
             } else {
-                console.log('timeDayText.....')
-                console.log(timeDayText)
-                console.log(timeInput)
-                document.getElementById("dwellsT").innerHTML = '<b>Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '</b><br>' + timeDayText;
+                document.getElementById("statusText").innerHTML = '<b>Rapid transit diagram for ' + dayNames[dayIndex] + ' ' + timeFromAsDate.getDate() + ' ' + monthNames[monthIndex] + ' ' + timeFromAsDate.getFullYear() + '</b><br>' + timeDayText;
                 if (refreshCommand != null) {
                     clearInterval(refreshCommand);
                     refreshCommand = null;
