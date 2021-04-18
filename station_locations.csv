@@ -165,8 +165,7 @@ Green-B,0,7,BU East,place-buest,437,466,00843d,,,Green-B,Blandford,place-bland,4
 Green-B,0,8,BU Central,place-bucen,419,449,00843d,,,Green-B,BU East,place-buest,437,466
 Green-B,0,9,BU West,place-buwst,404,433,00843d,,,Green-B,BU Central,place-bucen,419,449
 Green-B,0,10,St Paul,place-stplb,384,414,00843d,,,Green-B,BU West,place-buwst,404,433
-Green-B,0,11,Pleasant,place-plsgr,368,398,00843d,,,Green-B,St Paul,place-stplb,384,414
-Green-B,0,12,Babcock,place-babck,349,378,00843d,,,Green-B,Pleasant,place-plsgr,368,398
+Green-B,0,11,Babcock,place-babck,349,378,00843d,,,Green-B,St Paul,place-stplb,384,414
 Green-B,0,13,Packards Corner,place-brico,331,360,00843d,,,Green-B,Babcock,place-babck,349,378
 Green-B,0,13,,place-brico,314,352,00843d,1,,Green-B,Packards Corner,place-brico,331,360
 Green-B,0,14,Harvard,place-harvd,298,352,00843d,,,Green-B,0,place-brico,314,352
