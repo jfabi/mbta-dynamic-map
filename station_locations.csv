@@ -136,11 +136,13 @@ Green-C,0,6,Copley,place-coecl,589,500,00843d,,,Green-C,Arlington,place-armnl,64
 Green-C,0,7,Hynes,place-hymnl,537,500,00843d,,,Green-C,Copley,place-coecl,589,500
 Green-C,0,8,Kenmore,place-kencl,483,500,00843d,,,Green-C,Hynes,place-hymnl,537,500
 Green-C,0,8,,place-kencl,471,500,00843d,1,,Green-C,Kenmore,place-kencl,483,500
-Green-C,0,8,,place-kencl,432,497,00843d,,1,Green-C,0,place-kencl,471,500
+Green-C,0,8,,place-kencl,432,497,00843d,1,,Green-C,0,place-kencl,471,500
 Green-C,0,9,St Marys,place-smary,412,481,00843d,,,Green-C,0,place-kencl,432,497
 Green-C,0,10,Hawes,place-hwsst,396,465,00843d,,,Green-C,St Marys,place-smary,412,481
-Green-C,0,11,Kent,place-kntst,364,446,00843d,,,Green-C,Hawes,place-hwsst,396,465
-Green-C,0,12,St Paul,place-stpul,334,464,00843d,,,Green-C,Kent,place-kntst,364,446
+Green-C,0,10,,place-hwsst,380,446,00843d,1,,Green-C,Hawes,place-hwsst,396,465
+Green-C,0,11,Kent,place-kntst,364,446,00843d,,,Green-C,0,place-hwsst,380,446
+Green-C,0,11,,place-kntst,349,446,00843d,1,,Green-C,Kent,place-kntst,364,446
+Green-C,0,12,St Paul,place-stpul,334,464,00843d,,,Green-C,0,place-kntst,349,446
 Green-C,0,13,Coolidge Corner,place-cool,319,481,00843d,,,Green-C,St Paul,place-stpul,334,464
 Green-C,0,14,Summit,place-sumav,300,500,00843d,,,Green-C,Coolidge Corner,place-cool,319,481
 Green-C,0,15,Brandon Hall,place-bndhl,281,518,00843d,,,Green-C,Summit,place-sumav,300,500
