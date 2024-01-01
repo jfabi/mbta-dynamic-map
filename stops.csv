@@ -7739,6 +7739,13 @@ place-alsgr,,Allston Street,,,,42.348701,-71.137955,,"Allston St and Commonwealt
 70127,70127,Allston Street,Allston Street - Green Line - (B) Boston College,,Boston College,42.348546,-71.137362,,,https://www.mbta.com/stops/place-alsgr,level_median,0,place-alsgr,2
 9070126,9070126,Allston Street,Allston Street - Green Line Eastbound Shuttle,,Eastbound Shuttle,42.348475,-71.137871,,,https://www.mbta.com/stops/place-alsgr,,0,place-alsgr,1
 9070127,9070127,Allston Street,Allston Street - Green Line Westbound Shuttle,,Boston College Shuttle,42.348796,-71.138399,,,https://www.mbta.com/stops/place-alsgr,,0,place-alsgr,1
+place-amory,,Amory Street,,,,42.350992,-71.114748,,"Commonwealth Ave and Amory St, Boston, MA 02215",https://www.mbta.com/stops/place-amory,,1,,1
+170140,170140,Amory Street,Amory Street - Green Line - Park Street & North,,Park Street & North,42.350901,-71.114318,RapidTransit,,https://www.mbta.com/stops/place-amory,level_median,0,place-amory,1
+170141,170141,Amory Street,Amory Street - Green Line - (B) Boston College,,Boston College,42.351066,-71.115027,RapidTransit,,https://www.mbta.com/stops/place-amory,level_median,0,place-amory,1
+door-amory-ebamory,,Amory Street - Amory St,Amory Street - Amory St,,,42.350845,-71.113863,,,,level_in_street,2,place-amory,1
+door-amory-ebbuick,,"Amory Street - Buick St, Saint Paul St","Amory Street - Buick St, Saint Paul St",,,42.351054,-71.115613,,,,level_in_street,2,place-amory,1
+door-amory-wbamory,,Amory Street - Amory St,Amory Street - Amory St,,,42.350922,-71.113846,,,,level_in_street,2,place-amory,1
+door-amory-wbbuick,,"Amory Street - Buick St, Saint Paul St","Amory Street - Buick St, Saint Paul St",,,42.351138,-71.115595,,,,level_in_street,2,place-amory,1
 place-andrw,,Andrew,,,,42.330154,-71.057655,,"Dorchester Ave and Southhampton St, South Boston, MA 02127",https://www.mbta.com/stops/place-andrw,,1,,1
 13,13,Andrew,Andrew - Busway,,Busway,42.329962,-71.057625,,,https://www.mbta.com/stops/place-andrw,level_ground,0,place-andrw,0
 70083,70083,Andrew,Andrew - Red Line - Ashmont/Braintree,1,Ashmont/Braintree,42.330154,-71.057655,,,https://www.mbta.com/stops/place-andrw,level_-2_platform,0,place-andrw,1
@@ -7783,10 +7790,13 @@ place-astao,,Assembly,,,,42.392811,-71.077257,,"499 Foley St, Somerville, MA 021
 70279,70279,Assembly,Assembly - Orange Line - Oak Grove,,Oak Grove,42.392811,-71.077257,,,https://www.mbta.com/stops/place-astao,level_0_platform,0,place-astao,1
 door-astao-foley,,Assembly - Foley St,Assembly - Foley St,,,42.393312,-71.077661,,,,level_in_street,2,place-astao,1
 door-astao-revol,,Assembly - Revolution Dr,Assembly - Revolution Dr,,,42.392164,-71.077559,,,,level_in_street,2,place-astao,1
-place-babck,,Babcock Street,,,,42.351820,-71.121650,,"Commonwealth Ave and Babcock St, Boston, MA 02215",https://www.mbta.com/stops/place-babck,,1,,2
-70136,70136,Babcock Street,Babcock Street - Green Line - Park Street & North,,Park Street & North,42.351776,-71.121530,,,https://www.mbta.com/stops/place-babck,level_median,0,place-babck,2
-70137,70137,Babcock Street,Babcock Street - Green Line - (B) Boston College,,Boston College,42.351903,-71.122042,,,https://www.mbta.com/stops/place-babck,level_median,0,place-babck,2
-9070136,9070136,Babcock Street,Babcock Street - Green Line Eastbound Shuttle,,Eastbound Shuttle,42.351755,-71.121428,,,https://www.mbta.com/stops/place-babck,,0,place-babck,1
+place-babck,,Babcock Street,,,,42.351616,-71.119924,,"Commonwealth Ave and Babcock St, Boston, MA 02215",https://www.mbta.com/stops/place-babck,,1,,1
+170136,170136,Babcock Street,Babcock Street - Green Line - Park Street & North,,Park Street & North,42.351538,-71.119553,RapidTransit,,https://www.mbta.com/stops/place-babck,level_median,0,place-babck,1
+170137,170137,Babcock Street,Babcock Street - Green Line - (B) Boston College,,Boston College,42.351695,-71.120257,RapidTransit,,https://www.mbta.com/stops/place-babck,level_median,0,place-babck,1
+door-babck-ebagganis,,"Babcock Street - Harry Agganis Way, Pleasant St","Babcock Street - Harry Agganis Way, Pleasant St",,,42.351424,-71.118712,,,,level_in_street,2,place-babck,1
+door-babck-ebbabcock,,Babcock Street - Babcock St,Babcock Street - Babcock St,,,42.351719,-71.121123,,,,level_in_street,2,place-babck,1
+door-babck-wbagganis,,"Babcock Street - Harry Agganis Way, Pleasant St","Babcock Street - Harry Agganis Way, Pleasant St",,,42.351510,-71.118695,,,,level_in_street,2,place-babck,1
+door-babck-wbbabcock,,Babcock Street - Babcock St,Babcock Street - Babcock St,,,42.351797,-71.121103,,,,level_in_street,2,place-babck,1
 place-bbsta,,Back Bay,,,,42.347350,-71.075727,,"145 Dartmouth St Boston, MA 02116",https://www.mbta.com/stops/place-bbsta,,1,,1
 11384,11384,Dartmouth St @ Back Bay Sta,,,,42.347346,-71.075956,,,https://www.mbta.com/stops/place-bbsta,,0,place-bbsta,1
 176,176,Dartmouth St opp Back Bay Sta,,,,42.347343,-71.076035,,,https://www.mbta.com/stops/place-bbsta,,0,place-bbsta,1
