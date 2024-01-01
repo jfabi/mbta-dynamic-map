@@ -7797,6 +7797,17 @@ door-babck-ebagganis,,"Babcock Street - Harry Agganis Way, Pleasant St","Babcock
 door-babck-ebbabcock,,Babcock Street - Babcock St,Babcock Street - Babcock St,,,42.351719,-71.121123,,,,level_in_street,2,place-babck,1
 door-babck-wbagganis,,"Babcock Street - Harry Agganis Way, Pleasant St","Babcock Street - Harry Agganis Way, Pleasant St",,,42.351510,-71.118695,,,,level_in_street,2,place-babck,1
 door-babck-wbbabcock,,Babcock Street - Babcock St,Babcock Street - Babcock St,,,42.351797,-71.121103,,,,level_in_street,2,place-babck,1
+place-balsq,,Ball Square,,,,42.399889,-71.111003,,"646 Boston Ave, Somerville, MA 02144",https://www.mbta.com/stops/place-balsq,,1,,1
+70509,70509,Ball Square,Ball Square - Green Line - (E) Medford/Tufts,,Medford/Tufts,42.400380,-71.111331,RapidTransit,,https://www.mbta.com/stops/place-balsq,level_0_platform,0,place-balsq,1
+70510,70510,Ball Square,Ball Square - Green Line - Copley & West,,Copley & West,42.400103,-71.111207,RapidTransit,,https://www.mbta.com/stops/place-balsq,level_0_platform,0,place-balsq,1
+door-balsq-boston,,Ball Square - Boston Ave,Ball Square - Boston Ave,,,42.399891,-71.111125,,,,level_ground,2,place-balsq,1
+door-balsq-broadway,,Ball Square - Broadway,Ball Square - Broadway,,,42.399533,-71.110737,,,,level_1_in_street,2,place-balsq,1
+node-769-bottom,,Ball Square,Ball Square - Bottom of Broadway Elevator 769,,,42.399775,-71.110929,,,,level_0_platform,3,place-balsq,1
+node-769-top,,Ball Square,Ball Square - Top of Broadway Elevator 769,,,42.399775,-71.110929,,,,level_1_ground,3,place-balsq,1
+node-balsq-ramp-bottom,,Ball Square,Ball Square - Bottom of Boston Ave ramp,,,42.399896,-71.111019,,,,level_ground,3,place-balsq,1
+node-balsq-ramp-top,,Ball Square,Ball Square - Top of Boston Ave ramp,,,42.399974,-71.111074,,,,level_0_platform,3,place-balsq,1
+node-balsq-stairs-bottom,,Ball Square,Ball Square - Bottom of Broadway stairs,,,42.399732,-71.110870,,,,level_0_platform,3,place-balsq,1
+node-balsq-stairs-top,,Ball Square,Ball Square - Top of Broadway stairs,,,42.399663,-71.110817,,,,level_1_ground,3,place-balsq,1
 place-bbsta,,Back Bay,,,,42.347350,-71.075727,,"145 Dartmouth St Boston, MA 02116",https://www.mbta.com/stops/place-bbsta,,1,,1
 11384,11384,Dartmouth St @ Back Bay Sta,,,,42.347346,-71.075956,,,https://www.mbta.com/stops/place-bbsta,,0,place-bbsta,1
 176,176,Dartmouth St opp Back Bay Sta,,,,42.347343,-71.076035,,,https://www.mbta.com/stops/place-bbsta,,0,place-bbsta,1
@@ -8045,6 +8056,10 @@ place-engav,,Englewood Avenue,,,,42.336971,-71.145660,,"Beacon St and Englewood 
 70236,70236,Englewood Avenue,Englewood Avenue - Green Line - Park Street & North,,Park Street & North,42.337011,-71.145368,,,https://www.mbta.com/stops/place-engav,level_median,0,place-engav,2
 9070235,9070235,Englewood Avenue,Englewood Avenue - Green Line Cleveland Circle Shuttle,,Cleveland Circle Shuttle,42.337270,-71.145528,,,https://www.mbta.com/stops/place-engav,,0,place-engav,1
 9070236,9070236,Englewood Avenue,Englewood Avenue - Green Line Eastbound Shuttle,,Eastbound Shuttle,42.336781,-71.145835,,,https://www.mbta.com/stops/place-engav,,0,place-engav,1
+place-esomr,,East Somerville,,,,42.379467,-71.086625,,"134 Washington St, Somerville, MA 02143",https://www.mbta.com/stops/place-esomr,,1,,1
+70513,70513,East Somerville,East Somerville - Green Line - (E) Medford/Tufts,,Medford/Tufts,42.379881,-71.087032,RapidTransit,,https://www.mbta.com/stops/place-esomr,level_1_platform,0,place-esomr,1
+70514,70514,East Somerville,East Somerville - Green Line - Copley & West,,Copley & West,42.379624,-71.086829,RapidTransit,,https://www.mbta.com/stops/place-esomr,level_1_platform,0,place-esomr,1
+door-esomr-washington,,East Somerville - Washington St,East Somerville - Washington St,,,42.379391,-71.086636,,,,level_1_ground,2,place-esomr,1
 place-estav,,Eastern Avenue,,,,42.388374,-71.023859,,,https://www.mbta.com/stops/place-estav,,1,,1
 74636,74636,Eastern Avenue,Eastern Avenue - Silver Line - SL3 South Station,,South Station,42.388403,-71.024090,,,https://www.mbta.com/stops/place-estav,level_ground,0,place-estav,1
 74637,74637,Eastern Avenue,Eastern Avenue - Silver Line - SL3 Chelsea,,Chelsea,42.388476,-71.023829,,,https://www.mbta.com/stops/place-estav,level_ground,0,place-estav,1
@@ -8080,6 +8095,19 @@ door-forhl-arborway,,"Forest Hills - Arboretum, Washington St, South St","Forest
 door-forhl-exit,,"Forest Hills - Washington St, South St","Forest Hills - Washington St, South St",,,42.301546,-71.113551,,,,level_washington_st,2,place-forhl,2
 door-forhl-lower,,"Forest Hills - Hyde Park Ave, Franklin Park, Zoo, Parking","Forest Hills - Hyde Park Ave, Franklin Park, Zoo, Parking",,,42.300572,-71.113659,,,,level_hyde_park_ave,2,place-forhl,1
 door-forhl-upper,,Forest Hills - Washington St,Forest Hills - Washington St,,,42.300466,-71.114149,,,,level_washington_st,2,place-forhl,1
+place-gilmn,,Gilman Square,,,,42.387928,-71.096766,,"161 School St, Somerville, MA 02143",https://www.mbta.com/stops/place-gilmn,,1,,1
+70505,70505,Gilman Square,Gilman Square - Green Line - (E) Medford/Tufts,,Medford/Tufts,42.388043,-71.096956,RapidTransit,,https://www.mbta.com/stops/place-gilmn,level_-1_platform,0,place-gilmn,1
+70506,70506,Gilman Square,Gilman Square - Green Line - Copley & West,,Copley & West,42.387831,-71.096629,RapidTransit,,https://www.mbta.com/stops/place-gilmn,level_-1_platform,0,place-gilmn,1
+door-gilmn-medford,,Gilman Square - Medford St,Gilman Square - Medford St,,,42.387592,-71.096227,,,,level_ground,2,place-gilmn,1
+door-gilmn-school,,Gilman Square - School St,Gilman Square - School St,,,42.388307,-71.097622,,,,level_in_street,2,place-gilmn,1
+node-765-bottom,,Gilman Square,Gilman Square - Bottom of Medford St Elevator 765,,,42.387695,-71.096277,,,,level_-1_platform,3,place-gilmn,1
+node-765-top,,Gilman Square,Gilman Square - Top of Medford St Elevator 765,,,42.387695,-71.096277,,,,level_ground,3,place-gilmn,1
+node-766-bottom,,Gilman Square,Gilman Square - Bottom of School St Elevator 766,,,42.388245,-71.097497,,,,level_-1_platform,3,place-gilmn,1
+node-766-top,,Gilman Square,Gilman Square - Top of School St Elevator 766,,,42.388245,-71.097497,,,,level_in_street,3,place-gilmn,1
+node-gilmn-medstairs-bottom,,Gilman Square,Gilman Square - Bottom of stairs for Medford St,,,42.387746,-71.096354,,,,level_-1_platform,3,place-gilmn,1
+node-gilmn-medstairs-top,,Gilman Square,Gilman Square - Top of stairs for Medford St,,,42.387703,-71.096244,,,,level_ground,3,place-gilmn,1
+node-gilmn-schstairs-bottom,,Gilman Square,Gilman Square - Bottom of stairs for School St,,,42.388220,-71.097392,,,,level_-1_platform,3,place-gilmn,1
+node-gilmn-schstairs-top,,Gilman Square,Gilman Square - Top of stairs for School St,,,42.388272,-71.097501,,,,level_in_street,3,place-gilmn,1
 place-gover,,Government Center,,,,42.359705,-71.059215,,"Cambridge St and Court St, Boston, MA",https://www.mbta.com/stops/place-gover,,1,,1
 4510,4510,Cambridge St @ Government Ctr Sta,,,,42.360438,-71.060164,,,https://www.mbta.com/stops/place-gover,,0,place-gover,1
 70039,70039,Government Center,Government Center - Blue Line - Bowdoin,,Bowdoin,42.359705,-71.059215,,,https://www.mbta.com/stops/place-gover,level_-2_blue_platform,0,place-gover,1
@@ -8219,9 +8247,30 @@ door-matt-neponset,,"Mattapan - Neponset Trail, Parking","Mattapan - Neponset Tr
 door-matt-northbus,,Mattapan - Upper Busway,Mattapan - Upper Busway,,,42.267684,-71.092224,,,,level_ground,2,place-matt,1
 door-matt-southbus,,Mattapan - Lower Busway,Mattapan - Lower Busway,,,42.267431,-71.092376,,,,level_ground,2,place-matt,1
 door-matt-square,,Mattapan - Mattapan Square,Mattapan - Mattapan Square,,,42.267516,-71.093089,,,,level_ground,2,place-matt,1
+place-mdftf,,Medford/Tufts,,,,42.407975,-71.117044,,"460 Boston Ave, Medford, MA 02155",https://www.mbta.com/stops/place-mdftf,,1,,1
+70511,70511,Medford/Tufts,Medford/Tufts - Green Line - (E) Medford/Tufts,,Medford/Tufts,42.408306,-71.117280,RapidTransit,,https://www.mbta.com/stops/place-mdftf,level_-1_platform,0,place-mdftf,1
+70512,70512,Medford/Tufts,Medford/Tufts - Green Line - Copley & West,,Copley & West,42.408280,-71.117339,RapidTransit,,https://www.mbta.com/stops/place-mdftf,level_-1_platform,0,place-mdftf,1
+door-mdftf-boston,,"Medford/Tufts - Boston Ave, College Ave","Medford/Tufts - Boston Ave, College Ave",,,42.407798,-71.117017,,,,level_in_street,2,place-mdftf,1
+node-770-bottom,,Medford/Tufts,Medford/Tufts - Bottom of Elevator 770,,,42.407966,-71.117009,,,,level_-1_platform,3,place-mdftf,1
+node-770-top,,Medford/Tufts,Medford/Tufts - Top of Elevator 770,,,42.407966,-71.117009,,,,level_ground,3,place-mdftf,1
+node-772-bottom,,Medford/Tufts,Medford/Tufts - Bottom of Elevator 772,,,42.408005,-71.117041,,,,level_-1_platform,3,place-mdftf,1
+node-772-top,,Medford/Tufts,Medford/Tufts - Top of Elevator 772,,,42.408005,-71.117041,,,,level_ground,3,place-mdftf,1
+node-mdftf-stairs-bottom,,Medford/Tufts,Medford/Tufts - Bottom of stairs,,,42.407908,-71.117000,,,,level_-1_platform,3,place-mdftf,1
+node-mdftf-stairs-top,,Medford/Tufts,Medford/Tufts - Top of stairs,,,42.407850,-71.116914,,,,level_ground,3,place-mdftf,1
 place-mfa,,Museum of Fine Arts,,,,42.337711,-71.095512,,"Huntington Ave and Ruggles St, Boston, MA",https://www.mbta.com/stops/place-mfa,,1,,1
 70245,70245,Museum of Fine Arts,Museum of Fine Arts - Green Line - (E) Heath Street,,Heath Street,42.337875,-71.095240,,,https://www.mbta.com/stops/place-mfa,level_median,0,place-mfa,1
-70246,70246,Museum of Fine Arts,Museum of Fine Arts - Green Line - Park Street & North,,Park Street & North,42.338017,-71.094682,,,https://www.mbta.com/stops/place-mfa,level_median,0,place-mfa,1
+place-mgngl,,Magoun Square,,,,42.393682,-71.106388,,"270 Lowell St, Somerville, MA 02145",https://www.mbta.com/stops/place-mgngl,,1,,1
+70507,70507,Magoun Square,Magoun Square - Green Line - (E) Medford/Tufts,,Medford/Tufts,42.394357,-71.106824,RapidTransit,,https://www.mbta.com/stops/place-mgngl,level_-1_platform,0,place-mgngl,1	
+70508,70508,Magoun Square,Magoun Square - Green Line - Copley & West,,Copley & West,42.394050,-71.106688,RapidTransit,,https://www.mbta.com/stops/place-mgngl,level_-1_platform,0,place-mgngl,1
+door-mgngl-lowell,,Magoun Square - Lowell St,Magoun Square - Lowell St,,,42.393230,-71.106048,,,,level_in_street,2,place-mgngl,1
+node-767-bottom,,Magoun Square,Magoun Square - Bottom of Elevator 767,,,42.393854,-71.106485,,,,level_-1_platform,3,place-mgngl,1
+node-767-top,,Magoun Square,Magoun Square - Top of Elevator 767,,,42.393854,-71.106485,,,,level_-0.5_landing,3,place-mgngl,1
+node-768-bottom,,Magoun Square,Magoun Square - Bottom of Elevator 768,,,42.393894,-71.106514,,,,level_-1_platform,3,place-mgngl,1
+node-768-top,,Magoun Square,Magoun Square - Top of Elevator 768,,,42.393894,-71.106514,,,,level_-0.5_landing,3,place-mgngl,1
+node-mgngl-ramp-bottom,,Magoun Square,Magoun Square - Bottom of ramp,,,42.393673,-71.106381,,,,level_-0.5_landing,3,place-mgngl,1
+node-mgngl-ramp-top,,Magoun Square,Magoun Square - Top of ramp,,,42.393326,-71.106128,,,,level_in_street,3,place-mgngl,1
+node-mgngl-stairs-bottom,,Magoun Square,Magoun Square - Bottom of stairs,,,42.393797,-71.106492,,,,level_-1_platform,3,place-mgngl,1
+node-mgngl-stairs-top,,Magoun Square,Magoun Square - Top of stairs,,,42.393721,-71.106436,,,,level_-0.5_landing,3,place-mgngl,1
 place-miltt,,Milton,,,,42.270306,-71.067673,,"1 Adams St, Milton, MA 02186",https://www.mbta.com/stops/place-miltt,,1,,1
 70267,70267,Milton,Milton - Mattapan Trolley - Mattapan,,Mattapan,42.270305,-71.067674,,,https://www.mbta.com/stops/place-miltt,level_ground,0,place-miltt,1
 70268,70268,Milton,Milton - Mattapan Trolley - Ashmont,,Ashmont,42.270275,-71.067666,,,https://www.mbta.com/stops/place-miltt,level_ground,0,place-miltt,1
@@ -8546,7 +8595,20 @@ place-tumnl,,Tufts Medical Center,,,,42.349662,-71.063917,,"750 Washington St, B
 70016,70016,Tufts Medical Center,Tufts Medical Center - Orange Line - Forest Hills,,Forest Hills,42.349662,-71.063917,,,https://www.mbta.com/stops/place-tumnl,level_-2_platform,0,place-tumnl,1
 70017,70017,Tufts Medical Center,Tufts Medical Center - Orange Line - Oak Grove,,Oak Grove,42.349662,-71.063917,,,https://www.mbta.com/stops/place-tumnl,level_-2_platform,0,place-tumnl,1
 door-tumnl-tremont,,"Tufts Medical Center - Tremont St, YMCA Wang","Tufts Medical Center - Tremont St, YMCA Wang",,,42.348690,-71.065310,,,,level_in_street,2,place-tumnl,2
-door-tumnl-washington,,"Tufts Medical Center - Washington St, Tufts Medical Center","Tufts Medical Center - Washington St, Tufts Medical Center",,,42.349662,-71.063917,,,,level_in_street,2,place-tumnl,1
+door-tumnl-washington,,"Tufts Medical Center - Washington St, Tufts Medical Center","Tufts Medical Center - Washington St, Tufts Medical Center",,,42.349662,-71.063917,,,,level_in_street,2,place-tumnl,1e
+place-unsqu,,Union Square,,,,42.377359,-71.094761,,"50 Prospect St, Somerville, MA 02143",https://www.mbta.com/stops/place-unsqu,,1,,1
+70503,70503,Union Square,Union Square - Green Line - Copley & West,,Copley & West,42.377024,-71.093964,RapidTransit,,https://www.mbta.com/stops/place-unsqu,level_ground,0,place-unsqu,10
+70504,70504,Union Square,Union Square - Green Line - Copley & West,,Copley & West,42.376990,-71.093993,RapidTransit,,https://www.mbta.com/stops/place-unsqu,level_ground,0,place-unsqu,10
+Union Square-01,,Union Square,Union Square - Green Line - Track 1,1,Track 1,42.377024,-71.093964,RapidTransit,,https://www.mbta.com/stops/place-unsqu,level_ground,0,place-unsqu,10
+Union Square-02,,Union Square,Union Square - Green Line - Track 2,2,Track 2,42.376990,-71.093993,RapidTransit,,https://www.mbta.com/stops/place-unsqu,level_ground,0,place-unsqu,10
+door-unsqu-allen,,Union Square - Allen St,Union Square - Allen St,,,42.376841,-71.093356,,,,level_in_street,2,place-unsqu,1
+door-unsqu-elevator,,"Union Square - Prospect St, Webster Ave","Union Square - Prospect St, Webster Ave",,,42.377612,-71.095045,,,,level_1_in_street,2,place-unsqu,1
+door-unsqu-somerville,,Union Square - Prospect St,Union Square - Prospect St,,,42.377647,-71.094856,,,,level_in_street,2,place-unsqu,1
+node-771-bottom,,Union Square,Union Square - Bottom of Prospect St Elevator 771,,,42.377594,-71.094998,,,,level_ground,3,place-unsqu,1
+node-771-top,,Union Square,Union Square - Top of Prospect St Elevator 771,,,42.377604,-71.095025,,,,level_1_in_street,3,place-unsqu,1
+node-unsqu-rollupgate,,Union Square,Union Square - Entry/exit gate,,,42.377402,-71.094841,,,,level_ground,3,place-unsqu,1
+node-unsqu-stairs-bottom,,Union Square,Union Square - Bottom of stairs for Prospect St,,,42.377717,-71.094908,,,,level_ground,3,place-unsqu,1
+node-unsqu-stairs-top,,Union Square,Union Square - Top of stairs for Prospect St,,,42.377625,-71.095015,,,,level_1_in_street,3,place-unsqu,1
 place-valrd,,Valley Road,,,,42.268322,-71.081566,,"291 Valley Rd, Milton, MA 02186",https://www.mbta.com/stops/place-valrd,,1,,2
 70271,70271,Valley Road,Valley Road - Mattapan Trolley - Mattapan,,Mattapan,42.268322,-71.081568,,,https://www.mbta.com/stops/place-valrd,level_ground,0,place-valrd,2
 70272,70272,Valley Road,Valley Road - Mattapan Trolley - Ashmont,,Ashmont,42.268277,-71.081544,,,https://www.mbta.com/stops/place-valrd,level_ground,0,place-valrd,2
