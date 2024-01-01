@@ -81,29 +81,42 @@ Blue,0,8,Suffolk Downs,place-sdmnl,1064,208,003da5,,,Blue,Orient Heights,place-o
 Blue,0,9,Beachmont,place-bmmnl,1094,178,003da5,,,Blue,Suffolk Downs,place-sdmnl,,
 Blue,0,10,Revere Beach,place-rbmnl,1124,148,003da5,,,Blue,Beachmont,place-bmmnl,,
 Blue,0,11,Wonderland,place-wondl,1154,118,003da5,,,Blue,Revere Beach,place-rbmnl,,
-Green-E,0,0,Lechmere,place-lech,782,267,00843d,,,Green-E,,,,
-Green-E,0,1,Science Park,place-spmnl,805,289,00843d,,,Green-E,Lechmere,place-lech,,
-Green-E,0,2,North Station,place-north,825,308,00843d,,,Green-E,Science Park,place-spmnl,,
-Green-E,0,2,,place-north,844,338,00843d,1,,,,,,
-Green-E,0,3,Haymarket,place-haecl,825,369,00843d,,,"Green-C,Green-E",North Station,place-north,844,338
-Green-E,0,4,Government Center,place-gover,787,408,00843d,,,"Green-C,Green-E",Haymarket,place-haecl,,
-Green-E,0,5,Park,place-pktrm,749,447,00843d,,,"Green-C,Green-D,Green-E",Government Center,place-gover,,
-Green-E,0,6,Boylston,place-boyls,692,497,00843d,,,"Green-B,Green-C,Green-D,Green-E",Park,place-pktrm,,
-Green-E,0,7,Arlington,place-armnl,640,500,00843d,,,"Green-B,Green-C,Green-D,Green-E",Boylston,place-boyls,,
-Green-E,0,8,Copley,place-coecl,589,500,00843d,,,"Green-B,Green-C,Green-D,Green-E",Arlington,place-armnl,,
-Green-E,0,8,,place-coecl,556,519,00843d,1,,,,,,
-Green-E,0,9,Prudential,place-prmnl,556,555,00843d,,,Green-E,Copley,place-coecl,556,519
-Green-E,0,10,Symphony,place-symcl,556,592,00843d,,,Green-E,Prudential,place-prmnl,,
-Green-E,0,11,Northeastern,place-nuniv,545,608,00843d,,,Green-E,Symphony,place-symcl,,
-Green-E,0,12,MFA,place-mfa,529,624,00843d,,,Green-E,Northeastern,place-nuniv,,
-Green-E,0,13,LMA,place-lngmd,513,640,00843d,,,Green-E,MFA,place-mfa,,
-Green-E,0,14,Brigham Circle,place-brmnl,497,656,00843d,,,Green-E,LMA,place-lngmd,,
-Green-E,0,15,Fenwood,place-fenwd,481,672,00843d,,,Green-E,Brigham Circle,place-brmnl,,
-Green-E,0,16,Mission Park,place-mispk,465,688,00843d,,,Green-E,Fenwood,place-fenwd,,
-Green-E,0,17,Riverway,place-rvrwy,449,704,00843d,,,Green-E,Mission Park,place-mispk,,
-Green-E,0,18,Back of the Hill,place-bckhl,433,720,00843d,,,Green-E,Riverway,place-rvrwy,,
-Green-E,0,19,Heath,place-hsmnl,417,736,00843d,,,Green-E,Back of the Hill,place-bckhl,,
-Green-D,0,0,Government Center,place-gover,787,408,00843d,,,,Heath,place-hsmnl,417,736
+Green-E,0,0,Medford/Tufts,place-mdftf,644,129,00843d,,,Green-E,,,,
+Green-E,0,1,Ball Sq,place-balsq,667,152,00843d,,,Green-E,Medford/Tufts,place-mdftf,,
+Green-E,0,2,Magoun Sq,place-mgngl,690,175,00843d,,,Green-E,Ball Sq,place-balsq,,
+Green-E,0,3,Gilman Sq,place-gilmn,713,198,00843d,,,Green-E,Magoun Sq,place-mgngl,,
+Green-E,0,4,East Somerville,place-esomr,736,221,00843d,,,Green-E,Gilman Sq,place-gilmn,,
+Green-E,0,5,Lechmere,place-lech,782,267,00843d,,,Green-E,East Somerville,place-esomr,,
+Green-E,0,6,Science Park,place-spmnl,805,289,00843d,,,Green-E,Lechmere,place-lech,,
+Green-E,0,7,North Station,place-north,825,308,00843d,,,Green-E,Science Park,place-spmnl,,
+Green-E,0,7,,place-north,844,338,00843d,1,,,,,,
+Green-E,0,8,Haymarket,place-haecl,825,369,00843d,,,"Green-C,Green-E",North Station,place-north,844,338
+Green-E,0,9,Government Center,place-gover,787,408,00843d,,,"Green-C,Green-E",Haymarket,place-haecl,,
+Green-E,0,10,Park,place-pktrm,749,447,00843d,,,"Green-C,Green-D,Green-E",Government Center,place-gover,,
+Green-E,0,11,Boylston,place-boyls,692,497,00843d,,,"Green-B,Green-C,Green-D,Green-E",Park,place-pktrm,,
+Green-E,0,12,Arlington,place-armnl,640,500,00843d,,,"Green-B,Green-C,Green-D,Green-E",Boylston,place-boyls,,
+Green-E,0,13,Copley,place-coecl,589,500,00843d,,,"Green-B,Green-C,Green-D,Green-E",Arlington,place-armnl,,
+Green-E,0,13,,place-coecl,556,519,00843d,1,,,,,,
+Green-E,0,14,Prudential,place-prmnl,556,555,00843d,,,Green-E,Copley,place-coecl,556,519
+Green-E,0,15,Symphony,place-symcl,556,592,00843d,,,Green-E,Prudential,place-prmnl,,
+Green-E,0,16,Northeastern,place-nuniv,545,608,00843d,,,Green-E,Symphony,place-symcl,,
+Green-E,0,17,MFA,place-mfa,529,624,00843d,,,Green-E,Northeastern,place-nuniv,,
+Green-E,0,18,LMA,place-lngmd,513,640,00843d,,,Green-E,MFA,place-mfa,,
+Green-E,0,19,Brigham Circle,place-brmnl,497,656,00843d,,,Green-E,LMA,place-lngmd,,
+Green-E,0,20,Fenwood,place-fenwd,481,672,00843d,,,Green-E,Brigham Circle,place-brmnl,,
+Green-E,0,21,Mission Park,place-mispk,465,688,00843d,,,Green-E,Fenwood,place-fenwd,,
+Green-E,0,22,Riverway,place-rvrwy,449,704,00843d,,,Green-E,Mission Park,place-mispk,,
+Green-E,0,23,Back of the Hill,place-bckhl,433,720,00843d,,,Green-E,Riverway,place-rvrwy,,
+Green-E,0,24,Heath,place-hsmnl,417,736,00843d,,,Green-E,Back of the Hill,place-bckhl,,
+Green-D,0,-5,Union Sq,place-unsqu,710,252,00843d,,,Green-D,,,,
+Green-D,0,-5,,place-unsqu,767,252,00843d,1,,,,,710,252
+Green-D,0,-5,,place-unsqu,772,257,00843d,1,,,,,767,252
+Green-D,0,-4,Lechmere,place-lech,782,267,00843d,,,Green-D,Union Sq,place-unsqu,772,257
+Green-D,0,-3,Science Park,place-spmnl,805,289,00843d,,,"Green-D,Green-E",Lechmere,place-lech,,
+Green-D,0,-2,North Station,place-north,825,308,00843d,,,,Riverside,place-river,208,753
+Green-D,0,-2,,place-north,844,338,00843d,1,,,North Station,place-north,825,308
+Green-D,0,-1,Haymarket,place-haecl,825,369,00843d,,,,0,place-north,844,338
+Green-D,0,0,Government Center,place-gover,787,408,00843d,,,,Haymarket,place-haecl,825,369
 Green-D,0,1,Park,place-pktrm,749,447,00843d,,,,Government Center,place-gover,787,408
 Green-D,0,2,Boylston,place-boyls,692,497,00843d,,,,Park,place-pktrm,749,447
 Green-D,0,3,Arlington,place-armnl,640,500,00843d,,,,Boylston,place-boyls,692,497
@@ -114,7 +127,8 @@ Green-D,0,6,,place-kencl,471,500,00843d,1,,,,,,
 Green-D,0,7,Fenway,place-fenwy,444,531,00843d,,,Green-D,Kenmore,place-kencl,471,500
 Green-D,0,8,Longwood,place-longw,425,549,00843d,,,Green-D,Fenway,place-fenwy,,
 Green-D,0,9,Brookline Village,place-bvmnl,406,568,00843d,,,Green-D,Longwood,place-longw,,
-Green-D,0,11,Beaconsfield,place-bcnfd,368,605,00843d,,,Green-D,Brookline Village,place-bvmnl,,
+Green-D,0,10,Brookline Hills,place-brkhl,387,587,00843d,,,Green-D,Brookline Village,place-bvmnl,,
+Green-D,0,11,Beaconsfield,place-bcnfd,368,605,00843d,,,Green-D,Brookline Hills,place-brkhl,,
 Green-D,0,12,Reservoir,place-rsmnl,350,624,00843d,,,Green-D,Beaconsfield,place-bcnfd,,
 Green-D,0,13,Chestnut Hill,place-chhil,332,643,00843d,,,Green-D,Reservoir,place-rsmnl,,
 Green-D,0,14,Newton Centre,place-newto,312,662,00843d,,,Green-D,Chestnut Hill,place-chhil,,
@@ -159,14 +173,13 @@ Green-B,0,3,Copley,place-coecl,589,500,00843d,,,Green-B,Arlington,place-armnl,64
 Green-B,0,4,Hynes,place-hymnl,537,500,00843d,,,Green-B,Copley,place-coecl,589,500
 Green-B,0,5,Kenmore,place-kencl,483,500,00843d,,,Green-B,Hynes,place-hymnl,537,500
 Green-B,0,5,,place-kenc,471,500,00843d,1,,Green-B,Kenmore,place-kencl,483,500
-Green-B,0,6,Blandford,place-bland,454,484,00843d,,,Green-B,0,place-kenc,471,500
-Green-B,0,7,BU East,place-buest,437,466,00843d,,,Green-B,Blandford,place-bland,454,484
-Green-B,0,8,BU Central,place-bucen,419,449,00843d,,,Green-B,BU East,place-buest,437,466
-Green-B,0,9,BU West,place-buwst,404,433,00843d,,,Green-B,BU Central,place-bucen,419,449
-Green-B,0,10,St Paul,place-stplb,384,414,00843d,,,Green-B,BU West,place-buwst,404,433
-Green-B,0,11,Babcock,place-babck,349,378,00843d,,,Green-B,St Paul,place-stplb,384,414
-Green-B,0,13,Packards Corner,place-brico,331,360,00843d,,,Green-B,Babcock,place-babck,349,378
-Green-B,0,13,,place-brico,314,352,00843d,1,,Green-B,Packards Corner,place-brico,331,360
+Green-B,0,6,Blandford,place-bland,435,465,00843d,,,Green-B,0,place-kenc,471,500
+Green-B,0,7,BU East,place-buest,414,444,00843d,,,Green-B,Blandford,place-bland,435,465
+Green-B,0,8,BU Central,place-bucen,393,423,00843d,,,Green-B,BU East,place-buest,414,444
+Green-B,0,10,Amory,place-amory,372,402,00843d,,,Green-B,BU Central,place-bucen,393,423
+Green-B,0,11,Babcock,place-babck,351,381,00843d,,,Green-B,Amory,place-amory,372,402
+Green-B,0,13,Packards Corner,place-brico,330,360,00843d,,,Green-B,Babcock,place-babck,351,381
+Green-B,0,13,,place-brico,314,352,00843d,1,,Green-B,Packards Corner,place-brico,330,360
 Green-B,0,14,Harvard,place-harvd,298,352,00843d,,,Green-B,0,place-brico,314,352
 Green-B,0,14,,place-harvd,284,352,00843d,1,,Green-B,Harvard,place-harvd,298,352
 Green-B,0,15,Griggs,place-grigg,268,360,00843d,,,Green-B,0,place-harvd,284,352
